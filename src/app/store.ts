@@ -1,5 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    playerOne: playerOneReducer;
+    playerTwo: playerTwoReducer;
+    playerThree: playerThreeReducer;
+    playerFour: playerFourReducer;
+  },
 });
