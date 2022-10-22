@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   // * SELECTION FOR EITHER COMMANDER OR STANDARD
@@ -6,8 +6,12 @@ const HomePage: React.FC = () => {
     <div>
       CHOOSE YOUR OPTION{" "}
       <ul>
-        <li>Commander</li>
-        <li>Standard</li>
+        <Link to="/commander">
+          <li>Commander</li>
+        </Link>
+        <Link to="/standard">
+          <li>Standard</li>
+        </Link>
       </ul>
     </div>
   );

@@ -1,7 +1,11 @@
 import Header from "../../components/Header";
 
 const Commander: React.FC = () => {
-  return <>{/* MENU FOR VS OPTION */}</>;
+  return (
+    <>
+      <div>COMMANDER</div>
+    </>
+  );
 };
 
 export default Commander;

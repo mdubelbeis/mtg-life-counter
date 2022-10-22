@@ -1,10 +1,8 @@
-import HeaderShell from "./HeaderShell";
-
 const PlaymatHeader: React.FC = () => {
   // TODO: CANI? Get commander name, query the API, get an img and set game-board background???
 
   return (
-    <HeaderShell>
+    <header>
       <div>
         <form onSubmit={() => {}}>
           <label>
@@ -16,7 +14,7 @@ const PlaymatHeader: React.FC = () => {
           </label>
         </form>
       </div>
-    </HeaderShell>
+    </header>
   );
 };
 
