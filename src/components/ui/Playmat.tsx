@@ -70,11 +70,11 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   };
 
   return (
-    <div className="h-full w-full relative bg-blue-500">
+    <div className="h-full w-full relative bg-blue-500 p-2">
       <PlaymatHeader player={playerStats.name} opacity={opacity} />
       <div className="grid grid-cols-3 h-full">
         <div
-          className="grid-span-1 p-10 h-full w-full flex justify-center items-center text-4xl active:bg-blue-600 rounded"
+          className="grid-span-1 p-10 h-full w-full flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
           onClick={handleLifeLoss}
         >
           -
@@ -83,7 +83,7 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
           {playerStats.lifeTotal}
         </div>
         <div
-          className="grid-span-1 w-full h-full p-10 flex justify-center items-center text-4xl active:bg-blue-600 rounded"
+          className="grid-span-1 w-full h-full p-10 flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
           onClick={handleLifeGain}
         >
           +
