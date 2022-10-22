@@ -1,5 +1,4 @@
-import { RootState } from "../../app/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   increasePlayerOneHealth,
   decreasePlayerOneHealth,
@@ -16,6 +15,7 @@ import {
   increasePlayerFourHealth,
   decreasePlayerFourHealth,
 } from "../../app/commander/PlayerFourSlice";
+import PlaymatHeader from "./PlaymatHeader";
 
 interface PlaymatProps {
   playerStats: {
@@ -50,17 +50,32 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats }) => {
   };
 
   const handleLifeLoss = () => {
-    playerStats.name === "PlayerOne"
-      ? dispatch(decreasePlayerOneHealth())
-      : dispatch(decreasePlayerTwoHealth());
+    switch (playerStats.name) {
+      case "PlayerOne":
+        dispatch(decreasePlayerOneHealth());
+        break;
+      case "PlayerTwo":
+        dispatch(decreasePlayerTwoHealth());
+        break;
+      case "PlayerThree":
+        dispatch(decreasePlayerThreeHealth());
+        break;
+      case "PlayerFour":
+        dispatch(decreasePlayerFourHealth());
+        break;
+      default:
+        console.log("There is an error...");
+    }
   };
 
   return (
-    <div>
-      <div></div>
-      <span onClick={handleLifeLoss}>-</span>
-      <span>{playerStats.lifeTotal}</span>
-      <span onClick={handleLifeGain}>+</span>
+    <div className="h-full relative">
+      <PlaymatHeader player={playerStats.name} />
+      <div className="grid place-content-center h-full">
+        <span onClick={handleLifeLoss}>-</span>
+        <span>{playerStats.lifeTotal}</span>
+        <span onClick={handleLifeGain}>+</span>
+      </div>
     </div>
   );
 };

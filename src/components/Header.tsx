@@ -6,7 +6,9 @@ const Header: React.FC = () => {
       <header className="hidden lg:block lg:p-8 lg:bg-black lg:text-white lg:font-mono lg:text-4xl">
         <Link to="/">MTG LIFE COUNTER</Link>
       </header>
-      <header className="lg:hidden">Hamburger Menu</header>
+      <header className="lg:hidden absolute top-0 left-0">
+        Hamburger Menu
+      </header>
     </>
   );
 };
