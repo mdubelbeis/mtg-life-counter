@@ -1,3 +1,5 @@
+import MobileMenu from "../MobileMenu";
+
 interface PlaymatHeaderProps {
   player: string;
   opacity: string;
