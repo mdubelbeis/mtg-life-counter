@@ -1,5 +1,3 @@
-import React from "react";
-
 const HomePage: React.FC = () => {
   // * SELECTION FOR EITHER COMMANDER OR STANDARD
   return (

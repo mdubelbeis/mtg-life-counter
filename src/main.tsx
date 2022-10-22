@@ -9,19 +9,17 @@ import "./index.css";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 
-import Commander from "./pages/commander/Commander";
+import Commander from "./pages/commander";
 import HomePage from "./pages/HomePage";
 import Standard from "./pages/standard/Standard";
+import OneVOne from "./pages/commander/OneVOne";
+import ThreePlayers from "./pages/commander/ThreePlayers";
+import FourPlayers from "./pages/commander/FourPlayers";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {
@@ -32,6 +30,21 @@ const router = createBrowserRouter([
   {
     path: "commander",
     element: <Commander />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "commander/two-players",
+    element: <OneVOne />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "commander/three-players",
+    element: <ThreePlayers />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "commander/four-players",
+    element: <FourPlayers />,
     errorElement: <ErrorPage />,
   },
 ]);
