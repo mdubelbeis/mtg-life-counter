@@ -1,36 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
+  name: "PlayerThree",
   lifeTotal: 40,
   poisonTotal: 0,
   commanderDamage: 0,
+  commander: "",
 };
 
 export const playerThreeSlice = createSlice({
-  name: "playerThree",
+  name: "PlayerThree",
   initialState,
   reducers: {
-    decreaseHealth: (state) => {
+    decreasePlayerThreeHealth: (state) => {
       state.lifeTotal -= 1;
     },
-    increaseHealth: (state) => {
+    increasePlayerThreeHealth: (state) => {
       state.lifeTotal += 1;
     },
-    takePoisonDamage: (state) => {
+    takePoisonDamagePlayerThree: (state) => {
       state.poisonTotal += 1;
     },
-    takeCommanderDamage: (state) => {
+    takeCommanderDamagePlayerThree: (state) => {
       state.commanderDamage += 1;
+    },
+    updatePlayerThreeCommander: (state, action: PayloadAction<string>) => {
+      state.commander = action.payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
 export const {
-  decreaseHealth,
-  increaseHealth,
-  takePoisonDamage,
-  takeCommanderDamage,
+  decreasePlayerThreeHealth,
+  increasePlayerThreeHealth,
+  takePoisonDamagePlayerThree,
+  takeCommanderDamagePlayerThree,
 } = playerThreeSlice.actions;
 
 export default playerThreeSlice.reducer;

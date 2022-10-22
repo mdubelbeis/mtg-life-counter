@@ -6,11 +6,7 @@ const PlaymatHeader: React.FC = () => {
       <div>
         <form onSubmit={() => {}}>
           <label>
-            <input
-              type="text"
-              placeholder="Enter Commander"
-              value={commander}
-            />
+            <input type="text" placeholder="Enter Commander" />
           </label>
         </form>
       </div>

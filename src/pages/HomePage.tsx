@@ -6,10 +6,10 @@ const HomePage: React.FC = () => {
     <div>
       CHOOSE YOUR OPTION{" "}
       <ul>
-        <Link to="/commander">
+        <Link to="commander">
           <li>Commander</li>
         </Link>
-        <Link to="/standard">
+        <Link to="standard">
           <li>Standard</li>
         </Link>
       </ul>

@@ -36,23 +36,24 @@ const router = createBrowserRouter([
         path: "commander",
         element: <Commander />,
         errorElement: <ErrorPage />,
-        children: [
-          {
-            path: "two-players",
-            element: <TwoPlayers />,
-            errorElement: <ErrorPage />,
-          },
-          {
-            path: "three-players",
-            element: <ThreePlayers />,
-            errorElement: <ErrorPage />,
-          },
-          {
-            path: "four-players",
-            element: <FourPlayers />,
-            errorElement: <ErrorPage />,
-          },
-        ],
+        // children: [
+
+        // ],
+      },
+      {
+        path: "/commander/two-players",
+        element: <TwoPlayers />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/commander/three-players",
+        element: <ThreePlayers />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/commander/four-players",
+        element: <FourPlayers />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
