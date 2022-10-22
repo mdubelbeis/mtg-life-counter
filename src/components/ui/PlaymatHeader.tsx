@@ -26,21 +26,33 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
     <header
       className={`absolute ${
         opacity === "0" ? "hidden" : ""
-      } top-0 left-0 bg-black w-full text-white p-4 h-full flex flex-col gap-6`}
+      } top-0 left-0 bg-black w-full text-white p-4 h-full flex flex-col items-center gap-6 max-w-xl`}
     >
-      <div className={`opacity-${opacity} flex justify-between gap-4`}>
-        <div className="tracking-wider">{getPlayer()}</div>
-        <form onSubmit={() => {}}>
+      <div
+        className={`opacity-${opacity} flex flex-col justify-center w-full items-center gap-4`}
+      >
+        <div className="tracking-wider ">{getPlayer()}</div>
+        <form onSubmit={() => {}} className="w-full">
           <label>
             <input
               type="text"
               placeholder="Commander"
-              className="p-[2px] border-0 rounded-md"
+              className="p-[2px] border-0 rounded-md w-full text-black px-2"
             />
           </label>
         </form>
       </div>
-      <div>Other Options Section</div>
+
+      <div className="flex flex-col gap-2">
+        <span>Background: </span>
+        <select name="" id="" className="flex text-black">
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+          <option value="black">Black</option>
+          <option value="colorless">Colorless</option>
+        </select>
+      </div>
     </header>
   );
 };

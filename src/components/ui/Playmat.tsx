@@ -26,9 +26,10 @@ interface PlaymatProps {
     commander: string;
   };
   opacity: string;
+  bgColor?: string;
 }
 
-const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
+const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity, bgColor }) => {
   const dispatch = useDispatch();
 
   const handleLifeGain = () => {
@@ -69,24 +70,28 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
     }
   };
 
+  const handleBgColorChange = () => {};
+
   return (
-    <div className="h-full w-full relative bg-blue-500 p-2 border-t-[0.25px]">
+    <div className="h-full flex w-full relative bg-blue-500 ${bgColor} p-2 border-[0.25px]">
       <PlaymatHeader player={playerStats.name} opacity={opacity} />
-      <div className="grid grid-cols-3 h-full">
-        <div
-          className="grid-span-1 p-10 h-full w-full flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
-          onClick={handleLifeLoss}
-        >
-          -
-        </div>
-        <div className="grid-span-1 w-full flex justify-center items-center text-8xl">
+      <div className="flex flex-col gap-10 w-full justify-center items-center">
+        <div className="w-full text-center text-8xl">
           {playerStats.lifeTotal}
         </div>
-        <div
-          className="grid-span-1 w-full h-full p-10 flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
-          onClick={handleLifeGain}
-        >
-          +
+        <div className="flex">
+          <div
+            className="grid-span-1 py-10 px-8 h-full w-full flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
+            onClick={handleLifeLoss}
+          >
+            -
+          </div>
+          <div
+            className="grid-span-1 py-10 px-8 w-full h-full flex justify-center items-center text-4xl active:bg-blue-600 rounded active:bg-opacity-50 text-opacity-100"
+            onClick={handleLifeGain}
+          >
+            +
+          </div>
         </div>
       </div>
     </div>
