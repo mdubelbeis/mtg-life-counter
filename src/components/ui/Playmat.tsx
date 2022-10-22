@@ -25,9 +25,10 @@ interface PlaymatProps {
     commanderDamage: number;
     commander: string;
   };
+  opacity: string;
 }
 
-const Playmat: React.FC<PlaymatProps> = ({ playerStats }) => {
+const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const dispatch = useDispatch();
 
   const handleLifeGain = () => {
@@ -69,12 +70,24 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats }) => {
   };
 
   return (
-    <div className="h-full relative">
-      <PlaymatHeader player={playerStats.name} />
-      <div className="grid place-content-center h-full">
-        <span onClick={handleLifeLoss}>-</span>
-        <span>{playerStats.lifeTotal}</span>
-        <span onClick={handleLifeGain}>+</span>
+    <div className="h-full w-full relative bg-blue-500">
+      <PlaymatHeader player={playerStats.name} opacity={opacity} />
+      <div className="grid grid-cols-3 h-full">
+        <div
+          className="grid-span-1 p-10 h-full w-full flex justify-center items-center"
+          onClick={handleLifeLoss}
+        >
+          -
+        </div>
+        <div className="grid-span-1 w-full flex justify-center items-center text-6xl">
+          {playerStats.lifeTotal}
+        </div>
+        <div
+          className="grid-span-1 w-full h-full p-10 flex justify-center items-center"
+          onClick={handleLifeGain}
+        >
+          +
+        </div>
       </div>
     </div>
   );

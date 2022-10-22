@@ -1,8 +1,9 @@
 interface PlaymatHeaderProps {
   player: string;
+  opacity: string;
 }
 
-const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player }) => {
+const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
   // TODO: CANI? Get commander name, query the API, get an img and set game-board background???
 
   const getPlayer = () => {
@@ -19,8 +20,11 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player }) => {
   };
 
   return (
-    <header className="absolute top-0 left-0">
-      <div>
+    // HAMBURGER MENU
+    <header
+      className={`absolute opacity-${opacity} top-0 left-0 bg-black w-full text-white`}
+    >
+      <div className={`opacity-${opacity}`}>
         <div>{getPlayer()}</div>
         <form onSubmit={() => {}}>
           <label>
