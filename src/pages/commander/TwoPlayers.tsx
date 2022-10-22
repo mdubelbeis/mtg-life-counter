@@ -10,16 +10,16 @@ const TwoPlayers: React.FC = () => {
   const playerTwoStats = useSelector((state: RootState) => state.PlayerTwo);
   const [mobileMenuOpacity, setMobileMenuOpacity] = useState<string>("0");
   const [menuBackground, setMenuBackground] = useState(
-    "text-white bg-black p-2 rounded-full"
+    "text-white bg-black p-4 rounded-full"
   );
 
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {
       setMobileMenuOpacity("100");
-      setMenuBackground("text-black bg-white p-2 rounded-full");
+      setMenuBackground("text-black bg-white p-4 rounded-full");
     } else {
       setMobileMenuOpacity("0");
-      setMenuBackground("text-white bg-black p-2 rounded-full");
+      setMenuBackground("text-white bg-black p-4 rounded-full");
     }
   };
 

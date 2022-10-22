@@ -24,7 +24,9 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
   return (
     // HAMBURGER MENU
     <header
-      className={`absolute opacity-${opacity} top-0 left-0 bg-black w-full text-white p-4`}
+      className={`absolute ${
+        opacity === "0" ? "hidden" : ""
+      } top-0 left-0 bg-black w-full text-white p-4 h-full flex flex-col gap-6`}
     >
       <div className={`opacity-${opacity} flex justify-between gap-4`}>
         <div className="tracking-wider">{getPlayer()}</div>
@@ -38,6 +40,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
           </label>
         </form>
       </div>
+      <div>Other Options Section</div>
     </header>
   );
 };
