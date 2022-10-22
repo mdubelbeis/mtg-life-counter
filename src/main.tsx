@@ -9,10 +9,10 @@ import "./index.css";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 
-import Commander from "./pages/commander";
+import Commander from "./pages/commander/Commander";
 import HomePage from "./pages/HomePage";
 import Standard from "./pages/standard/Standard";
-import OneVOne from "./pages/commander/OneVOne";
+import TwoPlayers from "./pages/commander/TwoPlayers";
 import ThreePlayers from "./pages/commander/ThreePlayers";
 import FourPlayers from "./pages/commander/FourPlayers";
 
@@ -21,31 +21,35 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "standard",
-    element: <Standard />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "commander",
-    element: <Commander />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "commander/two-players",
-    element: <OneVOne />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "commander/three-players",
-    element: <ThreePlayers />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "commander/four-players",
-    element: <FourPlayers />,
-    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "standard",
+        element: <Standard />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "commander",
+        element: <Commander />,
+        errorElement: <ErrorPage />,
+        children: [
+          {
+            path: "two-players",
+            element: <TwoPlayers />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "three-players",
+            element: <ThreePlayers />,
+            errorElement: <ErrorPage />,
+          },
+          {
+            path: "four-players",
+            element: <FourPlayers />,
+            errorElement: <ErrorPage />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 

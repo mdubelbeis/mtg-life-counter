@@ -35,6 +35,7 @@ export const {
   increaseHealth,
   takePoisonDamage,
   takeCommanderDamage,
+  updateCommander,
 } = playerOneSlice.actions;
 
 export default playerOneSlice.reducer;
