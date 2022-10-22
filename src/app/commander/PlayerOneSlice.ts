@@ -4,6 +4,7 @@ const initialState = {
   lifeTotal: 40,
   poisonTotal: 0,
   commanderDamage: 0,
+  commander: "",
 };
 
 export const playerOneSlice = createSlice({
@@ -21,6 +22,9 @@ export const playerOneSlice = createSlice({
     },
     takeCommanderDamage: (state) => {
       state.commanderDamage += 1;
+    },
+    updateCommander: (state, payload) => {
+      state.commander = payload.payload;
     },
   },
 });
