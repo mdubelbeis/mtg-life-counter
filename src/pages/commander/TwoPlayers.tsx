@@ -24,7 +24,7 @@ const TwoPlayers: React.FC = () => {
   };
 
   return (
-    <div className="relative w-screen h-screen text-black">
+    <div className={`relative w-screen h-screen`}>
       <MobileMenu onClick={handleMenuClick} menuBackground={menuBackground} />
       <div className="w-full h-1/2 rotate-180 bg-slate-500">
         <Playmat playerStats={playerOneStats} opacity={mobileMenuOpacity} />

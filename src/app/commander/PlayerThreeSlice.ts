@@ -16,6 +16,7 @@ const initialState = {
   commanderDamage: 0,
   commander: "",
   bgColor: "bg-blue-500",
+  textColor: "",
 };
 
 export const playerThreeSlice = createSlice({
@@ -40,6 +41,9 @@ export const playerThreeSlice = createSlice({
     updatePlayerThreeBgColor: (state, action: PayloadAction<string>) => {
       state.bgColor = action.payload;
     },
+    updatePlayerThreeTextColor: (state, action: PayloadAction<string>) => {
+      state.textColor = action.payload;
+    },
   },
 });
 
@@ -51,6 +55,7 @@ export const {
   takeCommanderDamagePlayerThree,
   updatePlayerThreeCommander,
   updatePlayerThreeBgColor,
+  updatePlayerThreeTextColor,
 } = playerThreeSlice.actions;
 
 export default playerThreeSlice.reducer;
