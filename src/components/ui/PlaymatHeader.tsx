@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { GrPowerReset } from "react-icons/gr";
+import ApplyButton from "./ApplyButton";
+import DamageCounters from "../PlaymatHeader/DamageCounters";
 
 import {
   updatePlayerOneBgColor,
@@ -18,8 +21,6 @@ import {
   updatePlayerFourBgColor,
   updatePlayerFourTextColor,
 } from "../../app/commander/PlayerFourSlice";
-import ApplyButton from "./ApplyButton";
-import DamageCounters from "../PlaymatHeader/DamageCounters";
 
 interface PlaymatHeaderProps {
   commanderDamage: number;
@@ -111,6 +112,9 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
         opacity === "0" ? "hidden" : ""
       } top-0 left-0 bg-[#2c3142] w-full text-white p-4 h-full flex flex-col items-center gap-6 max-w-lg`}
     >
+      <div className="absolute top-4 left-6">
+        <GrPowerReset className="h-20" />
+      </div>
       <div className="absolute top-4 right-6">
         <Link to="/">Home</Link>
       </div>

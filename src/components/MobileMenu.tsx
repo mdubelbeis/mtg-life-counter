@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CgMenuGridR, CgClose } from "react-icons/cg";
+import { FaCog } from "react-icons/fa";
 
 interface MobileMenuProps {
   onClick: () => void;

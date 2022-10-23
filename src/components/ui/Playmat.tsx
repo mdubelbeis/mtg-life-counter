@@ -1,4 +1,7 @@
 import { useDispatch } from "react-redux";
+
+import PlaymatHeader from "./PlaymatHeader";
+
 import {
   increasePlayerOneHealth,
   decreasePlayerOneHealth,
@@ -15,8 +18,6 @@ import {
   increasePlayerFourHealth,
   decreasePlayerFourHealth,
 } from "../../app/commander/PlayerFourSlice";
-
-import PlaymatHeader from "./PlaymatHeader";
 
 interface PlaymatProps {
   playerStats: {
@@ -102,27 +103,6 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
           </div>
         </div>
       </div>
-      {/* <div
-        id="commander-damage"
-        className="absolute top-4 right-4 flex flex-col justify-center items-center"
-      >
-        <p className="text-2xl">+</p>
-        <h3 className="text-2xl p-4 text-blue-800">
-          {playerStats.commanderDamage}
-        </h3>
-        <p className="text-2xl">-</p>
-      </div>
-
-      <div
-        id="poison-damage"
-        className="absolute top-4 right-20 flex flex-col justify-center items-center"
-      >
-        <p className="text-2xl">+</p>
-        <h3 className="text-2xl p-4 text-green-800">
-          {playerStats.poisonTotal}
-        </h3>
-        <p className="text-2xl">-</p>
-      </div> */}
     </div>
   );
 };
