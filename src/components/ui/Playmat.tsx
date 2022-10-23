@@ -2,18 +2,23 @@ import { useDispatch } from "react-redux";
 import {
   increasePlayerOneHealth,
   decreasePlayerOneHealth,
+  updatePlayerOneBgColor,
+  updatePlayerOneCommander,
 } from "../../app/commander/PlayerOneSlice";
 import {
   increasePlayerTwoHealth,
   decreasePlayerTwoHealth,
+  updatePlayerTwoBgColor,
 } from "../../app/commander/PlayerTwoSlice";
 import {
   increasePlayerThreeHealth,
   decreasePlayerThreeHealth,
+  updatePlayerThreeBgColor,
 } from "../../app/commander/PlayerThreeSlice";
 import {
   increasePlayerFourHealth,
   decreasePlayerFourHealth,
+  updatePlayerFourBgColor,
 } from "../../app/commander/PlayerFourSlice";
 import PlaymatHeader from "./PlaymatHeader";
 
@@ -24,12 +29,14 @@ interface PlaymatProps {
     poisonTotal: number;
     commanderDamage: number;
     commander: string;
+    bgColor: string;
   };
   opacity: string;
-  bgColor?: string;
 }
 
-const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity, bgColor }) => {
+const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
+  const textColor =
+    playerStats.bgColor === "bg-black" ? "text-white" : "text-black";
   const dispatch = useDispatch();
 
   const handleLifeGain = () => {
@@ -70,10 +77,10 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity, bgColor }) => {
     }
   };
 
-  const handleBgColorChange = () => {};
-
   return (
-    <div className="h-full flex w-full relative bg-blue-500 ${bgColor} p-2 border-[0.25px]">
+    <div
+      className={`h-full flex w-full relative ${playerStats.bgColor} ${textColor} p-2 border-[0.25px]`}
+    >
       <PlaymatHeader player={playerStats.name} opacity={opacity} />
       <div className="flex flex-col gap-10 w-full justify-center items-center">
         <div className="w-full text-center text-8xl">

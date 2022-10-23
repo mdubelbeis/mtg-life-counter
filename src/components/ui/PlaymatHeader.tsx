@@ -1,4 +1,10 @@
-import MobileMenu from "../MobileMenu";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { updatePlayerOneBgColor } from "../../app/commander/PlayerOneSlice";
+import { updatePlayerTwoBgColor } from "../../app/commander/PlayerTwoSlice";
+import { updatePlayerThreeBgColor } from "../../app/commander/PlayerThreeSlice";
+import { updatePlayerFourBgColor } from "../../app/commander/PlayerFourSlice";
 
 interface PlaymatHeaderProps {
   player: string;
@@ -6,6 +12,8 @@ interface PlaymatHeaderProps {
 }
 
 const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
+  const [newBgColor, setNewBgColor] = useState<string>("");
+  const dispatch = useDispatch();
   // TODO: CANI? Get commander name, query the API, get an img and set game-board background???
 
   const getPlayer = () => {
@@ -19,6 +27,36 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
       case "PlayerFour":
         return "PLAYER 4";
     }
+  };
+
+  const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    switch (player) {
+      case "PlayerOne":
+        dispatch(updatePlayerOneBgColor(newBgColor));
+        break;
+      case "PlayerTwo":
+        dispatch(updatePlayerTwoBgColor(newBgColor));
+        break;
+      case "PlayerThree":
+        dispatch(updatePlayerThreeBgColor(newBgColor));
+        break;
+      case "PlayerFour":
+        dispatch(updatePlayerFourBgColor(newBgColor));
+        break;
+      default:
+        console.log("There is an error...");
+    }
+  };
+
+  // const handleApplyBgColorChange = (e: React.ChangeEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   handleBgColorApply(newBgColor);
+  // };
+
+  const handleBgColorInput = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNewBgColor(e.target.value);
   };
 
   return (
@@ -44,14 +82,25 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
       </div>
 
       <div className="flex flex-col gap-2">
-        <span>Background: </span>
-        <select name="" id="" className="flex text-black">
-          <option value="red">Red</option>
-          <option value="blue">Blue</option>
-          <option value="green">Green</option>
-          <option value="black">Black</option>
-          <option value="colorless">Colorless</option>
-        </select>
+        <form onSubmit={handleBgColorApply}>
+          <label>
+            {" "}
+            Background:{" "}
+            <select
+              name=""
+              id=""
+              className="flex text-black"
+              onChange={handleBgColorInput}
+            >
+              <option value="bg-red-300">Red</option>
+              <option value="bg-blue-300">Blue</option>
+              <option value="bg-green-300">Green</option>
+              <option value="bg-black">Black</option>
+              <option value="bg-slate-100">Colorless</option>
+            </select>
+          </label>
+          <button>Apply</button>
+        </form>
       </div>
     </header>
   );

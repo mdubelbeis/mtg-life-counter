@@ -1,11 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+const COLORS = [
+  "bg-blue-500",
+  "bg-red-500",
+  "bg-green-500",
+  "bg-black",
+  "bg-yellow-200",
+  "bg-slate-100",
+];
+
 const initialState = {
   name: "PlayerThree",
   lifeTotal: 40,
   poisonTotal: 0,
   commanderDamage: 0,
   commander: "",
+  bgColor: "bg-blue-500",
 };
 
 export const playerThreeSlice = createSlice({
@@ -27,6 +37,9 @@ export const playerThreeSlice = createSlice({
     updatePlayerThreeCommander: (state, action: PayloadAction<string>) => {
       state.commander = action.payload;
     },
+    updatePlayerThreeBgColor: (state, action: PayloadAction<string>) => {
+      state.bgColor = action.payload;
+    },
   },
 });
 
@@ -36,6 +49,8 @@ export const {
   increasePlayerThreeHealth,
   takePoisonDamagePlayerThree,
   takeCommanderDamagePlayerThree,
+  updatePlayerThreeCommander,
+  updatePlayerThreeBgColor,
 } = playerThreeSlice.actions;
 
 export default playerThreeSlice.reducer;
