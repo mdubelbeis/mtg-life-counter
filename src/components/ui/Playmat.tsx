@@ -79,18 +79,18 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
     >
       <PlaymatHeader player={playerStats.name} opacity={opacity} />
       <div className="flex flex-col gap-10 w-full justify-center items-center">
-        <div className="w-full text-center text-8xl">
+        <div className="w-full text-center text-9xl">
           {playerStats.lifeTotal}
         </div>
-        <div className="flex">
+        <div className="flex w-full h-28">
           <div
-            className={`grid-span-1 py-10 px-8 h-full w-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 h-full w-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeLoss}
           >
             <span className="">-</span>
           </div>
           <div
-            className={`grid-span-1 py-10 px-8 w-full h-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 w-full h-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeGain}
           >
             <span className="">+</span>
