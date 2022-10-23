@@ -203,10 +203,18 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
         </div>
 
         {/* CHANGE COMMANDER DAMAGE */}
-        <DamageCounters title="Commander Damage" counter={commanderDamage} />
+        <DamageCounters
+          title="Commander Damage"
+          player={player}
+          counter={commanderDamage}
+        />
 
         {/* CHANGE POISON DAMAGE */}
-        <DamageCounters title="Poison Damage" counter={poisonDamage} />
+        <DamageCounters
+          title="Poison Damage"
+          player={player}
+          counter={poisonDamage}
+        />
       </section>
     </header>
   );

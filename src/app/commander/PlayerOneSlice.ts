@@ -21,6 +21,12 @@ export const playerOneSlice = createSlice({
     increasePlayerOneHealth: (state) => {
       state.lifeTotal += 1;
     },
+    gainPoisonDamagePlayerOne: (state) => {
+      state.poisonTotal -= 1;
+    },
+    gainCommanderDamagePlayerOne: (state) => {
+      state.commanderDamage -= 1;
+    },
     takePoisonDamagePlayerOne: (state) => {
       state.poisonTotal += 1;
     },
@@ -43,6 +49,8 @@ export const playerOneSlice = createSlice({
 export const {
   decreasePlayerOneHealth,
   increasePlayerOneHealth,
+  gainCommanderDamagePlayerOne,
+  gainPoisonDamagePlayerOne,
   takePoisonDamagePlayerOne,
   takeCommanderDamagePlayerOne,
   updatePlayerOneCommander,

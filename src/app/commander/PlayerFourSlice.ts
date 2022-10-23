@@ -1,14 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const COLORS = [
-  "bg-blue-500",
-  "bg-red-500",
-  "bg-green-500",
-  "bg-black",
-  "bg-yellow-100",
-  "bg-slate-100",
-];
-
 const initialState = {
   name: "PlayerFour",
   lifeTotal: 40,
@@ -28,6 +19,12 @@ export const playerFourSlice = createSlice({
     },
     increasePlayerFourHealth: (state) => {
       state.lifeTotal += 1;
+    },
+    gainPoisonDamagePlayerFour: (state) => {
+      state.poisonTotal -= 1;
+    },
+    gainCommanderDamagePlayerFour: (state) => {
+      state.commanderDamage -= 1;
     },
     takePoisonDamagePlayerFour: (state) => {
       state.poisonTotal += 1;
@@ -51,6 +48,8 @@ export const playerFourSlice = createSlice({
 export const {
   decreasePlayerFourHealth,
   increasePlayerFourHealth,
+  gainCommanderDamagePlayerFour,
+  gainPoisonDamagePlayerFour,
   takePoisonDamagePlayerFour,
   takeCommanderDamagePlayerFour,
   updatePlayerFourCommander,
