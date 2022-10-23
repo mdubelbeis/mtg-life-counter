@@ -77,12 +77,17 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
     <div
       className={`h-full flex w-full relative ${playerStats.bgColor} p-2 border-[0.25px]`}
     >
-      <PlaymatHeader player={playerStats.name} opacity={opacity} />
+      <PlaymatHeader
+        poisonDamage={playerStats.poisonTotal}
+        commanderDamage={playerStats.commanderDamage}
+        player={playerStats.name}
+        opacity={opacity}
+      />
       <div className="flex flex-col gap-10 w-full justify-center items-center">
         <div className="w-full text-center text-9xl">
-          {playerStats.lifeTotal}
+          <h2 className="">{playerStats.lifeTotal}</h2>
         </div>
-        <div className="flex w-full h-28">
+        <div className="flex w-full">
           <div
             className={`grid-span-1 h-full w-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeLoss}
@@ -97,6 +102,27 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
           </div>
         </div>
       </div>
+      {/* <div
+        id="commander-damage"
+        className="absolute top-4 right-4 flex flex-col justify-center items-center"
+      >
+        <p className="text-2xl">+</p>
+        <h3 className="text-2xl p-4 text-blue-800">
+          {playerStats.commanderDamage}
+        </h3>
+        <p className="text-2xl">-</p>
+      </div>
+
+      <div
+        id="poison-damage"
+        className="absolute top-4 right-20 flex flex-col justify-center items-center"
+      >
+        <p className="text-2xl">+</p>
+        <h3 className="text-2xl p-4 text-green-800">
+          {playerStats.poisonTotal}
+        </h3>
+        <p className="text-2xl">-</p>
+      </div> */}
     </div>
   );
 };
