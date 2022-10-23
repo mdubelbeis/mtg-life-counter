@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { GrPowerReset } from "react-icons/gr";
+import { IoRefresh } from "react-icons/io5";
+import { BiHome } from "react-icons/bi";
 import ApplyButton from "./ApplyButton";
 import DamageCounters from "../PlaymatHeader/DamageCounters";
 
@@ -113,10 +114,12 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
       } top-0 left-0 bg-[#2c3142] w-full text-white p-4 h-full flex flex-col items-center gap-6 max-w-lg`}
     >
       <div className="absolute top-4 left-6">
-        <GrPowerReset className="h-20" />
+        <IoRefresh className="w-10 h-10" />
       </div>
       <div className="absolute top-4 right-6">
-        <Link to="/">Home</Link>
+        <Link to="/">
+          <BiHome className="w-10 h-10" />
+        </Link>
       </div>
       <div
         className={`opacity-${opacity} flex flex-col justify-center w-full items-center gap-4 mt-10`}
