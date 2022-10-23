@@ -17,6 +17,7 @@ import {
   updatePlayerFourBgColor,
   updatePlayerFourTextColor,
 } from "../../app/commander/PlayerFourSlice";
+import { Link } from "react-router-dom";
 
 interface PlaymatHeaderProps {
   player: string;
@@ -95,6 +96,9 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({ player, opacity }) => {
         opacity === "0" ? "hidden" : ""
       } top-0 left-0 bg-black w-full text-white p-4 h-full flex flex-col items-center gap-6`}
     >
+      <div className="absolute top-4 right-6">
+        <Link to="/">Home</Link>
+      </div>
       <div
         className={`opacity-${opacity} flex flex-col justify-center w-full items-center gap-4 mt-10`}
       >
