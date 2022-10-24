@@ -113,8 +113,11 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
         opacity === "0" ? "hidden" : ""
       } top-0 left-0 bg-[#2c3142] w-full text-white p-4 h-full flex flex-col items-center gap-6 max-w-lg`}
     >
-      <div className="absolute top-4 left-6">
-        <IoRefresh className="w-10 h-10" />
+      <div
+        className="absolute top-4 left-6"
+        onClick={() => console.log("Refreshed")}
+      >
+        <IoRefresh className="w-10 h-10 hover:cursor-pointer" />
       </div>
       <div className="absolute top-4 right-6">
         <Link to="/">
