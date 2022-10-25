@@ -1,4 +1,5 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 
 import PlaymatHeader from "./PlaymatHeader";
 
@@ -33,7 +34,6 @@ interface PlaymatProps {
 }
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
-  const text = playerStats.bgColor === "bg-black" ? "text-white" : "text-black";
   const dispatch = useDispatch();
 
   const handleLifeGain = () => {
@@ -85,21 +85,19 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         opacity={opacity}
       />
       <div className="flex flex-col gap-10 w-full justify-center items-center">
-        <div className="w-full text-center text-9xl">
-          <h2 className="">{playerStats.lifeTotal}</h2>
-        </div>
-        <div className="flex w-full">
+        <div className="w-full flex text-center text-9xl">
           <div
-            className={`grid-span-1 h-full w-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 h-full w-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-700 rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeLoss}
           >
-            <span className="">-</span>
+            <span>-</span>
           </div>
+          <h2>{playerStats.lifeTotal}</h2>
           <div
-            className={`grid-span-1 w-full h-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-600 rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 w-full h-full flex justify-center items-center text-4xl active:bg-${playerStats.bgColor}-700 rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeGain}
           >
-            <span className="">+</span>
+            <span>+</span>
           </div>
         </div>
       </div>
