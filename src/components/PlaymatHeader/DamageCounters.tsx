@@ -124,8 +124,12 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       <h3 className="font-bold">{title}:</h3>
       <span>{counter}</span>
       <div className="flex gap-6 text-xl mr-2 items-center">
-        <span onClick={handleDecrement}>-</span>
-        <span onClick={handleIncrement}>+</span>
+        <span onClick={handleDecrement} className="hover:cursor-pointer">
+          -
+        </span>
+        <span onClick={handleIncrement} className="hover:cursor-pointer">
+          +
+        </span>
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ import { useState } from "react";
 import MobileMenu from "../../components/MobileMenu";
 
 const TwoPlayers: React.FC = () => {
-  const playerOneStats = useSelector((state: RootState) => state.PlayerOne);
-  const playerTwoStats = useSelector((state: RootState) => state.PlayerTwo);
+  let playerOneStats = useSelector((state: RootState) => state.PlayerOne);
+  let playerTwoStats = useSelector((state: RootState) => state.PlayerTwo);
   const [mobileMenuOpacity, setMobileMenuOpacity] = useState<string>("0");
   const [menuBackground, setMenuBackground] = useState(
     "text-white bg-black p-4 rounded-full"

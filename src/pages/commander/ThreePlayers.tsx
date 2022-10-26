@@ -4,6 +4,7 @@ import { RootState } from "../../app/store";
 import Playmat from "../../components/ui/Playmat";
 import { useState } from "react";
 import MobileMenu from "../../components/MobileMenu";
+import PlaySide from "../../components/ui/PlaySide";
 
 const ThreePlayers: React.FC = () => {
   const playerOneStats = useSelector((state: RootState) => state.PlayerOne);
@@ -29,22 +30,22 @@ const ThreePlayers: React.FC = () => {
   return (
     <div className="relative w-screen h-screen text-black grid grid-cols-2 grid-rows-2">
       <MobileMenu onClick={handleMenuClick} menuBackground={menuBackground} />
-      <div className="w-full h-full">
-        <div className="w-full h-full rotate-180 bg-slate-500">
+      <PlaySide>
+        <div className="w-full h-full rotate-180">
           <Playmat playerStats={playerOneStats} opacity={mobileMenuOpacity} />
         </div>
         <div className="w-full h-full">
           <Playmat playerStats={playerTwoStats} opacity={mobileMenuOpacity} />
         </div>
-      </div>
-      <div className="w-full h-full">
+      </PlaySide>
+      <PlaySide>
         <div className="w-full h-full rotate-180">
           <Playmat playerStats={playerThreeStats} opacity={mobileMenuOpacity} />
         </div>
         <div className="w-full h-full">
           <Playmat playerStats={playerFourStats} opacity={mobileMenuOpacity} />
         </div>
-      </div>
+      </PlaySide>
     </div>
   );
 };

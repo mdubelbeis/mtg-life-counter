@@ -49,15 +49,14 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             name="textColor"
             id="textColor"
             className="py-2 px-4 rounded bg-white shadow-md"
+            defaultValue={"bg-blue-500"}
           >
-            <option value="bg-yellow-500">Yellow</option>
-            <option value="bg-blue-800">Dark Blue</option>
-            <option value="bg-green-800">Dark Green</option>
-            <option value="bg-black" selected>
-              Black
-            </option>
-            <option value="bg-slate-500">Colorless</option>
-            <option value="bg-white">White</option>
+            <option value="text-yellow-500">Yellow</option>
+            <option value="text-blue-800">Dark Blue</option>
+            <option value="text-green-800">Dark Green</option>
+            <option value="text-black">Black</option>
+            <option value="text-slate-500">Colorless</option>
+            <option value="text-white">White</option>
           </select>
         </label>
         <ApplyButton />
