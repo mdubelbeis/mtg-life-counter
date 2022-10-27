@@ -14,22 +14,22 @@ export const playerTwoSlice = createSlice({
   name: "PlayerTwo",
   initialState,
   reducers: {
-    decreasePlayerTwoHealth: (state) => {
+    decrementPlayerTwoHealth: (state) => {
       state.lifeTotal -= 1;
     },
-    increasePlayerTwoHealth: (state) => {
+    incrementPlayerTwoHealth: (state) => {
       state.lifeTotal += 1;
     },
-    gainPoisonDamagePlayerTwo: (state) => {
+    decrementPoisonDamagePlayerTwo: (state) => {
       state.poisonTotal -= 1;
     },
-    gainCommanderDamagePlayerTwo: (state) => {
+    decrementCommanderDamagePlayerTwo: (state) => {
       state.commanderDamage -= 1;
     },
-    takePoisonDamagePlayerTwo: (state) => {
+    incrementPoisonDamagePlayerTwo: (state) => {
       state.poisonTotal += 1;
     },
-    takeCommanderDamagePlayerTwo: (state) => {
+    incrementCommanderDamagePlayerTwo: (state) => {
       state.commanderDamage += 1;
     },
     updatePlayerTwoCommander: (state, action: PayloadAction<string>) => {
@@ -46,12 +46,12 @@ export const playerTwoSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-  decreasePlayerTwoHealth,
-  increasePlayerTwoHealth,
-  gainCommanderDamagePlayerTwo,
-  gainPoisonDamagePlayerTwo,
-  takePoisonDamagePlayerTwo,
-  takeCommanderDamagePlayerTwo,
+  decrementPlayerTwoHealth,
+  incrementPlayerTwoHealth,
+  decrementCommanderDamagePlayerTwo,
+  decrementPoisonDamagePlayerTwo,
+  incrementPoisonDamagePlayerTwo,
+  incrementCommanderDamagePlayerTwo,
   updatePlayerTwoCommander,
   updatePlayerTwoBgColor,
   updatePlayerTwoTextColor,

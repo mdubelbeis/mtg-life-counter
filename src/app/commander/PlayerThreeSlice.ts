@@ -14,22 +14,22 @@ export const playerThreeSlice = createSlice({
   name: "PlayerThree",
   initialState,
   reducers: {
-    decreasePlayerThreeHealth: (state) => {
+    decrementPlayerThreeHealth: (state) => {
       state.lifeTotal -= 1;
     },
-    increasePlayerThreeHealth: (state) => {
+    incrementPlayerThreeHealth: (state) => {
       state.lifeTotal += 1;
     },
-    gainPoisonDamagePlayerThree: (state) => {
+    decrementPoisonDamagePlayerThree: (state) => {
       state.poisonTotal -= 1;
     },
-    gainCommanderDamagePlayerThree: (state) => {
+    decrementCommanderDamagePlayerThree: (state) => {
       state.commanderDamage -= 1;
     },
-    takePoisonDamagePlayerThree: (state) => {
+    incrementPoisonDamagePlayerThree: (state) => {
       state.poisonTotal += 1;
     },
-    takeCommanderDamagePlayerThree: (state) => {
+    incrementCommanderDamagePlayerThree: (state) => {
       state.commanderDamage += 1;
     },
     updatePlayerThreeCommander: (state, action: PayloadAction<string>) => {
@@ -46,12 +46,12 @@ export const playerThreeSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
-  decreasePlayerThreeHealth,
-  increasePlayerThreeHealth,
-  gainCommanderDamagePlayerThree,
-  gainPoisonDamagePlayerThree,
-  takePoisonDamagePlayerThree,
-  takeCommanderDamagePlayerThree,
+  decrementPlayerThreeHealth,
+  incrementPlayerThreeHealth,
+  decrementCommanderDamagePlayerThree,
+  decrementPoisonDamagePlayerThree,
+  incrementPoisonDamagePlayerThree,
+  incrementCommanderDamagePlayerThree,
   updatePlayerThreeCommander,
   updatePlayerThreeBgColor,
   updatePlayerThreeTextColor,

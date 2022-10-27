@@ -1,27 +1,28 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 import {
-  takeCommanderDamagePlayerOne,
-  takePoisonDamagePlayerOne,
-  gainCommanderDamagePlayerOne,
-  gainPoisonDamagePlayerOne,
+  incrementCommanderDamagePlayerOne,
+  incrementPoisonDamagePlayerOne,
+  decrementCommanderDamagePlayerOne,
+  decrementPoisonDamagePlayerOne,
 } from "../../app/commander/PlayerOneSlice";
 import {
-  takeCommanderDamagePlayerTwo,
-  takePoisonDamagePlayerTwo,
-  gainCommanderDamagePlayerTwo,
-  gainPoisonDamagePlayerTwo,
+  incrementCommanderDamagePlayerTwo,
+  incrementPoisonDamagePlayerTwo,
+  decrementCommanderDamagePlayerTwo,
+  decrementPoisonDamagePlayerTwo,
 } from "../../app/commander/PlayerTwoSlice";
 import {
-  takeCommanderDamagePlayerThree,
-  takePoisonDamagePlayerThree,
-  gainCommanderDamagePlayerThree,
-  gainPoisonDamagePlayerThree,
+  incrementCommanderDamagePlayerThree,
+  incrementPoisonDamagePlayerThree,
+  decrementCommanderDamagePlayerThree,
+  decrementPoisonDamagePlayerThree,
 } from "../../app/commander/PlayerThreeSlice";
 import {
-  takeCommanderDamagePlayerFour,
-  takePoisonDamagePlayerFour,
-  gainCommanderDamagePlayerFour,
-  gainPoisonDamagePlayerFour,
+  incrementCommanderDamagePlayerFour,
+  incrementPoisonDamagePlayerFour,
+  decrementCommanderDamagePlayerFour,
+  decrementPoisonDamagePlayerFour,
 } from "../../app/commander/PlayerFourSlice";
 
 interface DamageCounterProps {
@@ -36,22 +37,51 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
   player,
 }) => {
   const dispatch = useDispatch();
+  let p1CommanderDamage = useSelector(
+    (state: RootState) => state.PlayerOne.commanderDamage
+  );
+  let p2CommanderDamage = useSelector(
+    (state: RootState) => state.PlayerTwo.commanderDamage
+  );
+  let p3CommanderDamage = useSelector(
+    (state: RootState) => state.PlayerThree.commanderDamage
+  );
+  let p4CommanderDamage = useSelector(
+    (state: RootState) => state.PlayerFour.commanderDamage
+  );
+
+  let p1PoisonDamage = useSelector(
+    (state: RootState) => state.PlayerOne.poisonTotal
+  );
+  let p2PoisonDamage = useSelector(
+    (state: RootState) => state.PlayerTwo.poisonTotal
+  );
+  let p3PoisonDamage = useSelector(
+    (state: RootState) => state.PlayerThree.poisonTotal
+  );
+  let p4PoisonDamage = useSelector(
+    (state: RootState) => state.PlayerFour.poisonTotal
+  );
 
   const handleDecrement = () => {
     switch (title) {
       case "Commander Damage":
         switch (player) {
           case "PlayerOne":
-            dispatch(gainCommanderDamagePlayerOne());
+            if (p1CommanderDamage === 0) break;
+            dispatch(decrementCommanderDamagePlayerOne());
             break;
           case "PlayerTwo":
-            dispatch(gainCommanderDamagePlayerTwo());
+            if (p2CommanderDamage === 0) break;
+            dispatch(decrementCommanderDamagePlayerTwo());
             break;
           case "PlayerThree":
-            dispatch(gainCommanderDamagePlayerThree());
+            if (p3CommanderDamage === 0) break;
+            dispatch(decrementCommanderDamagePlayerThree());
             break;
           case "PlayerFour":
-            dispatch(gainCommanderDamagePlayerFour());
+            if (p4CommanderDamage === 0) break;
+            dispatch(decrementCommanderDamagePlayerFour());
             break;
           default:
             console.log("Error: No such Action Creator");
@@ -60,16 +90,20 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       case "Poison Damage":
         switch (player) {
           case "PlayerOne":
-            dispatch(gainPoisonDamagePlayerOne());
+            if (p1PoisonDamage === 0) break;
+            dispatch(decrementPoisonDamagePlayerOne());
             break;
           case "PlayerTwo":
-            dispatch(gainPoisonDamagePlayerTwo());
+            if (p2PoisonDamage === 0) break;
+            dispatch(decrementPoisonDamagePlayerTwo());
             break;
           case "PlayerThree":
-            dispatch(gainPoisonDamagePlayerThree());
+            if (p3PoisonDamage === 0) break;
+            dispatch(decrementPoisonDamagePlayerThree());
             break;
           case "PlayerFour":
-            dispatch(gainPoisonDamagePlayerFour());
+            if (p4PoisonDamage === 0) break;
+            dispatch(decrementPoisonDamagePlayerFour());
             break;
           default:
             console.log("Error: No such Action Creator");
@@ -83,16 +117,16 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       case "Commander Damage":
         switch (player) {
           case "PlayerOne":
-            dispatch(takeCommanderDamagePlayerOne());
+            dispatch(incrementCommanderDamagePlayerOne());
             break;
           case "PlayerTwo":
-            dispatch(takeCommanderDamagePlayerTwo());
+            dispatch(incrementCommanderDamagePlayerTwo());
             break;
           case "PlayerThree":
-            dispatch(takeCommanderDamagePlayerThree());
+            dispatch(incrementCommanderDamagePlayerThree());
             break;
           case "PlayerFour":
-            dispatch(takeCommanderDamagePlayerFour());
+            dispatch(incrementCommanderDamagePlayerFour());
             break;
           default:
             console.log("Error: No such Action Creator");
@@ -101,16 +135,16 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       case "Poison Damage":
         switch (player) {
           case "PlayerOne":
-            dispatch(takePoisonDamagePlayerOne());
+            dispatch(incrementPoisonDamagePlayerOne());
             break;
           case "PlayerTwo":
-            dispatch(takePoisonDamagePlayerTwo());
+            dispatch(incrementPoisonDamagePlayerTwo());
             break;
           case "PlayerThree":
-            dispatch(takePoisonDamagePlayerThree());
+            dispatch(incrementPoisonDamagePlayerThree());
             break;
           case "PlayerFour":
-            dispatch(takePoisonDamagePlayerFour());
+            dispatch(incrementPoisonDamagePlayerFour());
             break;
           default:
             console.log("Error: No such Action Creator");

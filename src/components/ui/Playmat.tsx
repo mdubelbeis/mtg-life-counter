@@ -4,20 +4,20 @@ import { RootState } from "../../app/store";
 import PlaymatHeader from "./PlaymatHeader";
 
 import {
-  increasePlayerOneHealth,
-  decreasePlayerOneHealth,
+  incrementPlayerOneHealth,
+  decrementPlayerOneHealth,
 } from "../../app/commander/PlayerOneSlice";
 import {
-  increasePlayerTwoHealth,
-  decreasePlayerTwoHealth,
+  incrementPlayerTwoHealth,
+  decrementPlayerTwoHealth,
 } from "../../app/commander/PlayerTwoSlice";
 import {
-  increasePlayerThreeHealth,
-  decreasePlayerThreeHealth,
+  incrementPlayerThreeHealth,
+  decrementPlayerThreeHealth,
 } from "../../app/commander/PlayerThreeSlice";
 import {
-  increasePlayerFourHealth,
-  decreasePlayerFourHealth,
+  incrementPlayerFourHealth,
+  decrementPlayerFourHealth,
 } from "../../app/commander/PlayerFourSlice";
 import { useEffect } from "react";
 
@@ -70,16 +70,16 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const handleLifeGain = () => {
     switch (playerStats.name) {
       case "PlayerOne":
-        dispatch(increasePlayerOneHealth());
+        dispatch(incrementPlayerOneHealth());
         break;
       case "PlayerTwo":
-        dispatch(increasePlayerTwoHealth());
+        dispatch(incrementPlayerTwoHealth());
         break;
       case "PlayerThree":
-        dispatch(increasePlayerThreeHealth());
+        dispatch(incrementPlayerThreeHealth());
         break;
       case "PlayerFour":
-        dispatch(increasePlayerFourHealth());
+        dispatch(incrementPlayerFourHealth());
         break;
       default:
         console.log("There is an error...");
@@ -89,16 +89,16 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const handleLifeLoss = () => {
     switch (playerStats.name) {
       case "PlayerOne":
-        dispatch(decreasePlayerOneHealth());
+        dispatch(decrementPlayerOneHealth());
         break;
       case "PlayerTwo":
-        dispatch(decreasePlayerTwoHealth());
+        dispatch(decrementPlayerTwoHealth());
         break;
       case "PlayerThree":
-        dispatch(decreasePlayerThreeHealth());
+        dispatch(decrementPlayerThreeHealth());
         break;
       case "PlayerFour":
-        dispatch(decreasePlayerFourHealth());
+        dispatch(decrementPlayerFourHealth());
         break;
       default:
         console.log("There is an error...");
