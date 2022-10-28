@@ -17,10 +17,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClick, menuBackground }) => {
   return (
     <div
       onClick={handleIconClick}
-      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-[1px] shadow-lg border-white z-40 ${menuBackground}`}
+      className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-[1px] shadow-lg ${
+        switchMenuIcon ? "border-black" : "border-white"
+      } z-40 ${menuBackground}`}
     >
-      {!switchMenuIcon && <CgMenuGridR className="h-10 w-10" />}
-      {switchMenuIcon && <CgClose className="h-10 w-10" />}
+      {!switchMenuIcon ? (
+        <CgMenuGridR className="h-10 w-10" />
+      ) : (
+        <CgClose className="h-10 w-10" />
+      )}
     </div>
   );
 };

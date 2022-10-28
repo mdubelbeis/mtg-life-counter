@@ -3,7 +3,7 @@ import { RootState } from "../../app/store";
 
 import Playmat from "../../components/ui/Playmat";
 import { useState } from "react";
-import MobileMenu from "../../components/MobileMenu";
+import MobileMenu from "../../components/PlaymatHeader/MobileMenu";
 
 const FourPlayers: React.FC = () => {
   const playerOneStats = useSelector((state: RootState) => state.PlayerOne);
