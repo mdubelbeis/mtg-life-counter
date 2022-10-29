@@ -19,6 +19,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
 
   const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     switch (player) {
       case "PlayerOne":
         dispatch(updatePlayerOneBgColor(inputColor));
@@ -37,7 +38,10 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         console.log("There is an error...");
     }
   };
-
+  const handleBgColorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = `bg-${e.target.value.toLowerCase()}-500`;
+    setInputColor(value);
+  };
   return (
     <form
       onSubmit={handleBgColorApply}
@@ -48,11 +52,11 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           name="bgColor"
           id="bgColor"
           className="py-2 px-4 w-full rounded bg-white shadow-md"
-          onChange={(e) => setInputColor(e.target.value)}
+          onChange={handleBgColorChange}
         >
           {colorsArray.map((color) => {
             return (
-              <option key={color.id} value={color.value}>
+              <option key={color.id} value={color.name}>
                 {color.name}
               </option>
             );
