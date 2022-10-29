@@ -1,11 +1,12 @@
 import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../app/store";
 import ApplyButton from "../ui/ApplyButton";
 
 import { updatePlayerOneBgColor } from "../../app/commander/PlayerOneSlice";
 import { updatePlayerTwoBgColor } from "../../app/commander/PlayerTwoSlice";
 import { updatePlayerThreeBgColor } from "../../app/commander/PlayerThreeSlice";
 import { updatePlayerFourBgColor } from "../../app/commander/PlayerFourSlice";
-import { RootState } from "../../app/store";
+import { useState } from "react";
 
 interface BgColorFormProps {
   player: string;
@@ -14,21 +15,23 @@ interface BgColorFormProps {
 const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   const dispatch = useDispatch();
   const colorsArray = useSelector((state: RootState) => state.colors.colors);
+  const [inputColor, setInputColor] = useState("");
 
   const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     switch (player) {
       case "PlayerOne":
-        dispatch(updatePlayerOneBgColor(e.currentTarget.bgColor.value));
+        dispatch(updatePlayerOneBgColor(inputColor));
         break;
       case "PlayerTwo":
-        dispatch(updatePlayerTwoBgColor(e.currentTarget.bgColor.value));
+        dispatch(updatePlayerTwoBgColor(inputColor));
+        // console.log(inputColor);
         break;
       case "PlayerThree":
-        dispatch(updatePlayerThreeBgColor(e.currentTarget.bgColor.value));
+        dispatch(updatePlayerThreeBgColor(inputColor));
         break;
       case "PlayerFour":
-        dispatch(updatePlayerFourBgColor(e.currentTarget.bgColor.value));
+        dispatch(updatePlayerFourBgColor(inputColor));
         break;
       default:
         console.log("There is an error...");
@@ -45,6 +48,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           name="bgColor"
           id="bgColor"
           className="py-2 px-4 w-full rounded bg-white shadow-md"
+          onChange={(e) => setInputColor(e.target.value)}
         >
           {colorsArray.map((color) => {
             return (
