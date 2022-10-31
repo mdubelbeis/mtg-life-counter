@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
@@ -9,9 +10,15 @@ const TwoPlayers: React.FC = () => {
   let playerOneStats = useSelector((state: RootState) => state.PlayerOne);
   let playerTwoStats = useSelector((state: RootState) => state.PlayerTwo);
   const [mobileMenuOpacity, setMobileMenuOpacity] = useState<string>("0");
-  const [menuBackground, setMenuBackground] = useState(
-    "text-white bg-black p-4 rounded-full"
-  );
+  const [menuBackground, setMenuBackground] = useState("");
+
+  useEffect(() => {
+    if (mobileMenuOpacity === "0") {
+      setMenuBackground("text-white bg-black p-4 rounded-full");
+    } else {
+      setMenuBackground("text-black bg-white p-4 rounded-full");
+    }
+  }, []);
 
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {
