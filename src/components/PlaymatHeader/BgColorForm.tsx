@@ -38,7 +38,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
     }
   };
 
-  const handleBgColorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleBgColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputColor(`${e.target.value}`);
   };
 
@@ -48,10 +48,12 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
       className="flex items-center justify-between gap-4 w-full"
     >
       <label>
-        <select
+        <input type="color" value={inputColor} onChange={handleBgColorChange} />
+        {/* <select
           name="bgColor"
           id="bgColor"
           className="py-2 px-4 w-full rounded bg-white shadow-md"
+          value={inputColor}
           onChange={handleBgColorChange}
         >
           {colorsArray.map((color) => {
@@ -61,7 +63,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
               </option>
             );
           })}
-        </select>
+        </select> */}
       </label>
       <ApplyButton />
     </form>

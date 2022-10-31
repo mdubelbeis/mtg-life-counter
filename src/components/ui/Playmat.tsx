@@ -74,9 +74,7 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
 
   return (
     <div
-      className={`h-full flex w-full relative ${
-        playerStats.bgColor || "bg-blue-500"
-      } p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative bg-[${playerStats.bgColor}] p-2 border-[0.25px]`}
     >
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}

@@ -6,7 +6,7 @@ const initialState = {
   poisonTotal: 0,
   commanderDamage: 0,
   commander: "",
-  bgColor: "",
+  bgColor: "#3B82F6",
   textColor: "",
 };
 
