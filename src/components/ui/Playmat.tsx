@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { RootState } from "../../app/store";
 import PlaymatHeader from "./PlaymatHeader";
 
 import {
@@ -35,36 +33,6 @@ interface PlaymatProps {
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const dispatch = useDispatch();
-
-  function handleBgColor() {
-    let playerOneBgColor = useSelector((state: RootState) => {
-      state.PlayerOne.bgColor;
-    });
-    let playerTwoBgColor = useSelector((state: RootState) => {
-      state.PlayerTwo.bgColor;
-    });
-    let playerThreeBgColor = useSelector((state: RootState) => {
-      state.PlayerThree.bgColor;
-    });
-    let playerFourBgColor = useSelector((state: RootState) => {
-      state.PlayerFour.bgColor;
-    });
-
-    switch (playerStats.name) {
-      case "PlayerOne":
-        // console.log(playerOneBgColor);
-        return playerOneBgColor;
-      case "PlayerTwo":
-        // console.log(playerTwoBgColor);
-        return playerTwoBgColor;
-      case "PlayerThree":
-        // console.log(playerThreeBgColor);
-        return playerThreeBgColor;
-      case "PlayerFour":
-        // console.log(playerFourBgColor);
-        return playerFourBgColor;
-    }
-  }
 
   const handleLifeGain = () => {
     switch (playerStats.name) {

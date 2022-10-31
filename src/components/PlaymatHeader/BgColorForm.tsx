@@ -26,7 +26,6 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         break;
       case "PlayerTwo":
         dispatch(updatePlayerTwoBgColor(inputColor));
-        // console.log(inputColor);
         break;
       case "PlayerThree":
         dispatch(updatePlayerThreeBgColor(inputColor));
@@ -38,10 +37,11 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         console.log("There is an error...");
     }
   };
+
   const handleBgColorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = `bg-${e.target.value.toLowerCase()}-500`;
-    setInputColor(value);
+    setInputColor(`${e.target.value}`);
   };
+
   return (
     <form
       onSubmit={handleBgColorApply}
@@ -56,7 +56,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         >
           {colorsArray.map((color) => {
             return (
-              <option key={color.id} value={color.name}>
+              <option key={color.id} value={color.id}>
                 {color.name}
               </option>
             );
