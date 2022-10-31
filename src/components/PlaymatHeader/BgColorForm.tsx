@@ -6,7 +6,8 @@ import { updatePlayerOneBgColor } from "../../app/commander/PlayerOneSlice";
 import { updatePlayerTwoBgColor } from "../../app/commander/PlayerTwoSlice";
 import { updatePlayerThreeBgColor } from "../../app/commander/PlayerThreeSlice";
 import { updatePlayerFourBgColor } from "../../app/commander/PlayerFourSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CgFormatJustify } from "react-icons/cg";
 
 interface BgColorFormProps {
   player: string;
@@ -14,11 +15,12 @@ interface BgColorFormProps {
 
 const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   const dispatch = useDispatch();
-  const colorsArray = useSelector((state: RootState) => state.colors.colors);
-  const [inputColor, setInputColor] = useState("");
+  // const colorsArray = useSelector((state: RootState) => state.colors.colors);
+  const [inputColor, setInputColor] = useState<string>("#3B82F6");
 
   const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(inputColor);
 
     switch (player) {
       case "PlayerOne":
@@ -39,7 +41,8 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   };
 
   const handleBgColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputColor(`${e.target.value}`);
+    setInputColor(e.target.value);
+    console.log(e.target.value);
   };
 
   return (

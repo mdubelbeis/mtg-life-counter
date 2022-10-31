@@ -18,7 +18,7 @@ const TwoPlayers: React.FC = () => {
     } else {
       setMenuBackground("text-black bg-white p-4 rounded-full");
     }
-  }, []);
+  });
 
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {
@@ -32,10 +32,13 @@ const TwoPlayers: React.FC = () => {
 
   return (
     <div className={`relative w-screen h-screen`}>
+      {/* Mobile Menu */}
       <MobileMenu onClick={handleMenuClick} menuBackground={menuBackground} />
-      <div className="w-full h-1/2 rotate-180 bg-slate-500">
+      {/* Player 1 */}
+      <div className="w-full h-1/2 rotate-180">
         <Playmat playerStats={playerOneStats} opacity={mobileMenuOpacity} />
       </div>
+      {/* Player 2 */}
       <div className="w-full h-1/2">
         <Playmat playerStats={playerTwoStats} opacity={mobileMenuOpacity} />
       </div>

@@ -74,8 +74,12 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
 
   return (
     <div
-      className={`h-full flex w-full relative bg-[${playerStats.bgColor}] p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative bg-[${
+        playerStats.bgColor || "#AAFFFF"
+      }] p-2 border-[0.25px]`}
     >
+      {/* {`bg-[${playerStats.bgColor}]`}  // Checks to see if the changed
+      color is being applied*/}
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
         commanderDamage={playerStats.commanderDamage}
@@ -83,16 +87,16 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         opacity={opacity}
       />
       <div className="flex flex-col gap-10 w-full justify-center items-center">
-        <div className="w-full flex text-center text-9xl">
+        <div className="w-full flex text-center justify-center items-center text-9xl">
           <div
-            className={`grid-span-1 h-full w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 h-full py-32 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeLoss}
           >
             <span>-</span>
           </div>
           <h2>{playerStats.lifeTotal}</h2>
           <div
-            className={`grid-span-1 w-full h-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+            className={`grid-span-1 w-full h-full py-32 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
             onClick={handleLifeGain}
           >
             <span>+</span>
