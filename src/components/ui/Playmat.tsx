@@ -33,7 +33,6 @@ interface PlaymatProps {
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const dispatch = useDispatch();
-  let bgColor = playerStats.bgColor;
 
   const handleLifeGain = () => {
     switch (playerStats.name) {
@@ -75,10 +74,9 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
 
   return (
     <div
-      className={`h-full flex w-full relative bg-[${bgColor}] p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative bg-[${playerStats.bgColor}] p-2 border-[0.25px]`}
     >
-      {/* {`bg-[${playerStats.bgColor}]`}  // Checks to see if the changed
-      color is being applied*/}
+      {`bg-[${playerStats.bgColor}]`}
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
         commanderDamage={playerStats.commanderDamage}

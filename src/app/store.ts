@@ -3,7 +3,6 @@ import PlayerFourReducer from "./commander/PlayerFourSlice";
 import PlayerThreeReducer from "./commander/PlayerThreeSlice";
 import PlayerTwoReducer from "./commander/PlayerTwoSlice";
 import PlayerOneReducer from "./commander/PlayerOneSlice";
-import ColorsReducer from "./ui/colors";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +10,6 @@ export const store = configureStore({
     PlayerThree: PlayerThreeReducer,
     PlayerTwo: PlayerTwoReducer,
     PlayerOne: PlayerOneReducer,
-    colors: ColorsReducer,
   },
 });
 

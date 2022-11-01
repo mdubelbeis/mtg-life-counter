@@ -15,13 +15,10 @@ interface BgColorFormProps {
 
 const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   const dispatch = useDispatch();
-  // const colorsArray = useSelector((state: RootState) => state.colors.colors);
   const [inputColor, setInputColor] = useState<string>("#3B82F6");
 
   const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(inputColor);
-
     switch (player) {
       case "PlayerOne":
         dispatch(updatePlayerOneBgColor(inputColor));
@@ -42,7 +39,6 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
 
   const handleBgColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputColor(e.target.value);
-    // console.log(e.target.value);
   };
 
   return (
@@ -58,21 +54,6 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           value={inputColor}
           onChange={handleBgColorChange}
         />
-        {/* <select
-          name="bgColor"
-          id="bgColor"
-          className="py-2 px-4 w-full rounded bg-white shadow-md"
-          value={inputColor}
-          onChange={handleBgColorChange}
-        >
-          {colorsArray.map((color) => {
-            return (
-              <option key={color.id} value={color.id}>
-                {color.name}
-              </option>
-            );
-          })}
-        </select> */}
       </label>
       <ApplyButton />
     </form>
