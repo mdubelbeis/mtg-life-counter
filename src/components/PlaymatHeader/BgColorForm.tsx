@@ -20,7 +20,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
 
   const handleBgColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(inputColor);
+    // console.log(inputColor);
 
     switch (player) {
       case "PlayerOne":
@@ -42,7 +42,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
 
   const handleBgColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputColor(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   return (
@@ -51,7 +51,13 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
       className="flex items-center justify-between gap-4 w-full"
     >
       <label>
-        <input type="color" value={inputColor} onChange={handleBgColorChange} />
+        <input
+          type="color"
+          name="bgColor"
+          id="bgColor"
+          value={inputColor}
+          onChange={handleBgColorChange}
+        />
         {/* <select
           name="bgColor"
           id="bgColor"
