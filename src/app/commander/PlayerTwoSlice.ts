@@ -6,7 +6,7 @@ const initialState = {
   poisonTotal: 0,
   commanderDamage: 0,
   commander: "",
-  bgColor: "#3B82F6",
+  bgColor: "",
   textColor: "",
 };
 
@@ -37,7 +37,6 @@ export const playerTwoSlice = createSlice({
     },
     updatePlayerTwoBgColor: (state, action: PayloadAction<string>) => {
       state.bgColor = action.payload;
-      console.log(action.payload);
     },
     updatePlayerTwoTextColor: (state, action: PayloadAction<string>) => {
       state.textColor = action.payload;

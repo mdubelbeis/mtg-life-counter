@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import PlaymatHeader from "./PlaymatHeader";
 
 import {
@@ -17,6 +17,7 @@ import {
   incrementPlayerFourHealth,
   decrementPlayerFourHealth,
 } from "../../app/commander/PlayerFourSlice";
+import { useState } from "react";
 
 interface PlaymatProps {
   playerStats: {
@@ -33,6 +34,7 @@ interface PlaymatProps {
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const dispatch = useDispatch();
+  const [bgColor, setBgColor] = useState<string>(playerStats.bgColor);
 
   const handleLifeGain = () => {
     switch (playerStats.name) {
@@ -71,12 +73,12 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         console.log("There is an error...");
     }
   };
-
+  console.log(`bg-[${playerStats.bgColor}]`); // THE COLOR CHANGE CAN BE SEEN HERE. Background color should reflect the input color option.
+  console.log(`bg-[${bgColor}]`); // THE COLOR CHANGE CAN BE SEEN HERE. Background color should reflect the input color option.
   return (
     <div
-      className={`h-full flex w-full relative bg-[${playerStats.bgColor}] p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative bg-[${bgColor}] p-2 border-[0.25px]`}
     >
-      {`bg-[${playerStats.bgColor}]`}
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
         commanderDamage={playerStats.commanderDamage}
