@@ -15,15 +15,15 @@ interface PlaymatProps {
 }
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
-  const [bgColor, setBgColor] = useState("#00ff00");
+  const [bgColor, setBgColor] = useState("bg-[#3B82F6]");
 
   const handleNewBgColor = (color: string) => {
-    setBgColor(color);
+    setBgColor(`bg-[${color}]`);
   };
 
   return (
     <div
-      className={`h-full flex w-full relative bg-[${bgColor}] p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative ${bgColor} p-2 border-[0.25px]`}
     >
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
