@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import PlaymatHeader from "./PlaymatHeader";
 import Scoreboard from "./Scoreboard";
@@ -15,7 +15,8 @@ interface PlaymatProps {
 }
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
-  const [bgColor, setBgColor] = useState("bg-[#3B82F6]");
+  const [bgColor, setBgColor] = useState<string>("");
+  const [altColor, setAltColor] = useState<string>("bg-[#3B82F6]");
 
   const handleNewBgColor = (color: string) => {
     setBgColor(`bg-[${color}]`);
@@ -23,7 +24,9 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
 
   return (
     <div
-      className={`h-full flex w-full relative ${bgColor} p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative ${
+        bgColor ? bgColor : altColor
+      } p-2 border-[0.25px]`}
     >
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
