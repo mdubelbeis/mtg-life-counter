@@ -1,42 +1,19 @@
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../app/store";
-import ApplyButton from "../ui/ApplyButton";
-
-import { updatePlayerOneBgColor } from "../../app/commander/PlayerOneSlice";
-import { updatePlayerTwoBgColor } from "../../app/commander/PlayerTwoSlice";
-import { updatePlayerThreeBgColor } from "../../app/commander/PlayerThreeSlice";
-import { updatePlayerFourBgColor } from "../../app/commander/PlayerFourSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface BgColorFormProps {
   player: string;
+  setBgColor: (color: string) => void;
 }
 
 // Instead of using a form onSubmit, when a color is selected by the input
 // run the handleBgColorChange function, calling handleBgColorApply at the end.
 
-const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
-  const dispatch = useDispatch();
-  const [inputColor, setInputColor] = useState<string>("#000000");
+const BgColorForm: React.FC<BgColorFormProps> = ({ player, setBgColor }) => {
+  const [inputColor, setInputColor] = useState<string>("#3B82F6");
 
   const handleBgColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputColor(e.target.value);
-    switch (player) {
-      case "PlayerOne":
-        dispatch(updatePlayerOneBgColor(e.target.value));
-        break;
-      case "PlayerTwo":
-        dispatch(updatePlayerTwoBgColor(e.target.value));
-        break;
-      case "PlayerThree":
-        dispatch(updatePlayerThreeBgColor(e.target.value));
-        break;
-      case "PlayerFour":
-        dispatch(updatePlayerFourBgColor(e.target.value));
-        break;
-      default:
-        console.log("There is an error...");
-    }
+    setBgColor(e.target.value);
   };
 
   return (
@@ -46,7 +23,6 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           type="color"
           name="bgColor"
           id="bgColor"
-          value={inputColor}
           onChange={handleBgColorChange}
           className="border-0 bg-white rounded-full"
         />

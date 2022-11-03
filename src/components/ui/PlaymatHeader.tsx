@@ -1,6 +1,6 @@
 import DamageCounters from "../PlaymatHeader/DamageCounters";
 import BackgroundColorMenu from "../PlaymatHeader/BackgroundColorMenu";
-import TextColorMenu from "../PlaymatHeader/TextColorMenu";
+import TextColorForm from "../PlaymatHeader/TextColorForm";
 import CommanderInputForm from "../PlaymatHeader/CommanderInputForm";
 import PlaymatHeaderNav from "../PlaymatHeader/PlaymatHeaderNav";
 import { RootState } from "../../app/store";
@@ -11,6 +11,7 @@ interface PlaymatHeaderProps {
   poisonDamage: number;
   player: string;
   opacity: string;
+  setBgColor: (color: string) => void;
 }
 
 const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
@@ -18,6 +19,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
   opacity,
   poisonDamage,
   commanderDamage,
+  setBgColor,
 }) => {
   let commanderName;
 
@@ -64,8 +66,8 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
         id="settings-wrapper"
         className="grid grid-cols-1 gap-2 p-4 w-full"
       >
-        <BackgroundColorMenu player={player} />
-        <TextColorMenu player={player} />
+        <BackgroundColorMenu player={player} setBgColor={setBgColor} />
+        <TextColorForm player={player} />
         <DamageCounters
           title="Commander Damage"
           player={player}

@@ -1,10 +1,5 @@
 import { useDispatch } from "react-redux";
-import ApplyButton from "../ui/ApplyButton";
-
-import { updatePlayerOneTextColor } from "../../app/commander/PlayerOneSlice";
-import { updatePlayerTwoTextColor } from "../../app/commander/PlayerTwoSlice";
-import { updatePlayerThreeTextColor } from "../../app/commander/PlayerThreeSlice";
-import { updatePlayerFourTextColor } from "../../app/commander/PlayerFourSlice";
+import { useState } from "react";
 
 interface TextColorMenuProps {
   player: string;
@@ -12,23 +7,17 @@ interface TextColorMenuProps {
 
 const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
   const dispatch = useDispatch();
+  const [textColor, setTextColor] = useState<string>("#000000");
 
-  const handleTextColorApply = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(e.currentTarget.textColor.value);
-
+  const handleTextColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (player) {
       case "PlayerOne":
-        dispatch(updatePlayerOneTextColor(e.currentTarget.textColor.value));
         break;
       case "PlayerTwo":
-        dispatch(updatePlayerTwoTextColor(e.currentTarget.textColor.value));
         break;
       case "PlayerThree":
-        dispatch(updatePlayerThreeTextColor(e.currentTarget.textColor.value));
         break;
       case "PlayerFour":
-        dispatch(updatePlayerFourTextColor(e.currentTarget.textColor.value));
         break;
       default:
         console.log("There is an error...");
@@ -40,12 +29,17 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
       className="flex items-center justify-between gap-4 h-min p-2 rounded text-[#2c3142] bg-white w-full"
     >
       <h3 className="font-bold">Text: </h3>
-      <form
-        onSubmit={handleTextColorApply}
-        className="flex items-center justify-between gap-4 w-full"
-      >
+      <form className="flex items-center justify-end gap-4 w-full">
         <label>
-          <select
+          <input
+            type="color"
+            name="textColor"
+            id="textColor"
+            value={textColor}
+            onChange={handleTextColorChange}
+            className="border-0 bg-white rounded-full"
+          />
+          {/* <select
             name="textColor"
             id="textColor"
             className="py-2 px-4 rounded bg-white shadow-md"
@@ -57,9 +51,9 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             <option value="text-black">Black</option>
             <option value="text-slate-500">Colorless</option>
             <option value="text-white">White</option>
-          </select>
+          </select> */}
         </label>
-        <ApplyButton />
+        {/* <ApplyButton /> */}
       </form>
     </div>
   );
