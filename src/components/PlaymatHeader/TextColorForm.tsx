@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
+import ApplyButton from "../ui/ApplyButton";
 
 interface TextColorMenuProps {
   player: string;
@@ -53,7 +54,7 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             <option value="text-white">White</option>
           </select> */}
         </label>
-        {/* <ApplyButton /> */}
+        <ApplyButton />
       </form>
     </div>
   );
