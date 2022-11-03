@@ -15,17 +15,19 @@ interface PlaymatProps {
 }
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
+  const [userSelectedColor, setUserSelectedColor] = useState<boolean>(false);
   const [bgColor, setBgColor] = useState<string>("");
   const [altColor, setAltColor] = useState<string>("bg-[#3B82F6]");
 
   const handleNewBgColor = (color: string) => {
+    setUserSelectedColor(true);
     setBgColor(`bg-[${color}]`);
   };
 
   return (
     <div
       className={`h-full flex w-full relative ${
-        bgColor ? bgColor : altColor
+        userSelectedColor ? bgColor : altColor
       } p-2 border-[0.25px]`}
     >
       <PlaymatHeader
