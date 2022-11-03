@@ -2,8 +2,8 @@ interface ApplyButtonProps {}
 
 const ApplyButton: React.FC<ApplyButtonProps> = () => {
   return (
-    <button className="py-[2px] px-[6px] rounded text-center bg-black text-white">
-      Apply
+    <button className="py-1 px-3 rounded text-center bg-blue-500 text-white">
+      Set
     </button>
   );
 };
