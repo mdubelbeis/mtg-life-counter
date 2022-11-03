@@ -14,28 +14,18 @@ interface PlaymatProps {
   opacity: string;
   bgColor: string;
   altColor: string;
-  handleNewBgColor: (color: string) => void;
 }
 
-const Playmat: React.FC<PlaymatProps> = ({
-  playerStats,
-  opacity,
-  bgColor,
-  altColor,
-  handleNewBgColor,
-}) => {
+const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   return (
     <div
-      className={`h-full flex w-full relative ${
-        bgColor || altColor
-      } p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative bg-blue-500 p-2 border-[0.25px]`}
     >
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
         commanderDamage={playerStats.commanderDamage}
         player={playerStats.name}
         opacity={opacity}
-        setBgColor={handleNewBgColor}
       />
       <Scoreboard playerStats={playerStats} />
     </div>

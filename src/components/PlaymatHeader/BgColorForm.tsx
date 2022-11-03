@@ -1,21 +1,14 @@
 import { useState } from "react";
 import ApplyButton from "../ui/ApplyButton";
 
-interface BgColorFormProps {
-  player: string;
-  setBgColor: (color: string) => void;
-}
-
 // Instead of using a form onSubmit, when a color is selected by the input
 // run the handleBgColorChange function, calling handleBgColorApply at the end.
 
-const BgColorForm: React.FC<BgColorFormProps> = ({ player, setBgColor }) => {
+const BgColorForm: React.FC = () => {
   const [inputColor, setInputColor] = useState<string>("#3B82F6");
 
   const handleBgColorSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setBgColor(inputColor);
   };
 
   return (
