@@ -12,22 +12,22 @@ interface PlaymatProps {
     commander: string;
   };
   opacity: string;
+  bgColor: string;
+  altColor: string;
+  handleNewBgColor: (color: string) => void;
 }
 
-const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
-  const [userSelectedColor, setUserSelectedColor] = useState<boolean>(false);
-  const [bgColor, setBgColor] = useState<string>("");
-  const [altColor, setAltColor] = useState<string>("bg-[#3B82F6]");
-
-  const handleNewBgColor = (color: string) => {
-    setUserSelectedColor(true);
-    setBgColor(`bg-[${color}]`);
-  };
-
+const Playmat: React.FC<PlaymatProps> = ({
+  playerStats,
+  opacity,
+  bgColor,
+  altColor,
+  handleNewBgColor,
+}) => {
   return (
     <div
       className={`h-full flex w-full relative ${
-        userSelectedColor ? bgColor : altColor
+        bgColor || altColor
       } p-2 border-[0.25px]`}
     >
       <PlaymatHeader
