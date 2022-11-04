@@ -6,7 +6,7 @@ const initialState = {
   poisonTotal: 0,
   commanderDamage: 0,
   commander: "",
-  boardColor: "bg-teal-500",
+  boardColor: "#34568B",
 };
 
 export const playerTwoSlice = createSlice({

@@ -6,6 +6,7 @@ const initialState = {
   poisonTotal: 0,
   commanderDamage: 0,
   commander: "",
+  boardColor: "bg-teal-500",
 };
 
 export const playerFourSlice = createSlice({
@@ -33,6 +34,9 @@ export const playerFourSlice = createSlice({
     updatePlayerFourCommander: (state, action: PayloadAction<string>) => {
       state.commander = action.payload;
     },
+    updatePlayerFourBoardColor: (state, action: PayloadAction<string>) => {
+      state.boardColor = action.payload;
+    },
   },
 });
 
@@ -45,6 +49,7 @@ export const {
   incrementPoisonDamagePlayerFour,
   incrementCommanderDamagePlayerFour,
   updatePlayerFourCommander,
+  updatePlayerFourBoardColor,
 } = playerFourSlice.actions;
 
 export default playerFourSlice.reducer;

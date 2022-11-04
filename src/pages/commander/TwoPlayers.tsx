@@ -9,24 +9,27 @@ const TwoPlayers: React.FC = () => {
   let playerOneStats = useSelector((state: RootState) => state.PlayerOne);
   let playerTwoStats = useSelector((state: RootState) => state.PlayerTwo);
   const [mobileMenuOpacity, setMobileMenuOpacity] = useState<string>("0");
-  const [menuBackground, setMenuBackground] = useState(
+  const [closeMenuIconBackground, setCloseMenuIconBackground] = useState(
     "text-white bg-black p-4 rounded-full"
   );
 
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {
       setMobileMenuOpacity("100");
-      setMenuBackground("text-black bg-white p-4 rounded-full");
+      setCloseMenuIconBackground("text-black bg-white p-4 rounded-full");
     } else {
       setMobileMenuOpacity("0");
-      setMenuBackground("text-white bg-black p-4 rounded-full");
+      setCloseMenuIconBackground("text-white bg-black p-4 rounded-full");
     }
   };
 
   return (
     <div className={`relative w-screen h-screen`}>
       {/* Mobile Menu */}
-      <MobileMenu onClick={handleMenuClick} menuBackground={menuBackground} />
+      <MobileMenu
+        onClick={handleMenuClick}
+        menuBackground={closeMenuIconBackground}
+      />
       {/* Player 1 */}
       <div className="w-full h-1/2 rotate-180">
         <Playmat playerStats={playerOneStats} opacity={mobileMenuOpacity} />
