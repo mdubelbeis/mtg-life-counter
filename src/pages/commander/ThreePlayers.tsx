@@ -42,8 +42,9 @@ const ThreePlayers: React.FC = () => {
         <div className="w-full h-full rotate-180">
           <Playmat playerStats={playerThreeStats} opacity={mobileMenuOpacity} />
         </div>
-        <div className="w-full h-full">
-          <Playmat playerStats={playerFourStats} opacity={mobileMenuOpacity} />
+        <div className="w-full h-full bg-black text-white grid place-content-center">
+          {/* <Playmat playerStats={playerFourStats} opacity={mobileMenuOpacity} /> */}
+          Advert?
         </div>
       </PlaySide>
     </div>
