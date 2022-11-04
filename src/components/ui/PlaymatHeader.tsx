@@ -50,7 +50,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
     <header
       className={`absolute ${
         opacity === "0" ? "hidden" : ""
-      } top-0 left-0 bg-[#2c3142] w-full text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
+      } top-0 left-0 bg-[#2c3142] w-full md:w-9/12 text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
     >
       <PlaymatHeaderNav player={player} />
       <div

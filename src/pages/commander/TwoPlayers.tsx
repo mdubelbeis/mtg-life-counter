@@ -16,14 +16,10 @@ const TwoPlayers: React.FC = () => {
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {
       setMobileMenuOpacity("100");
-      setCloseMenuIconBackground(
-        "text-black bg-white p-4 lg:p-10 rounded-full"
-      );
+      setCloseMenuIconBackground("text-black bg-white p-4 rounded-full");
     } else {
       setMobileMenuOpacity("0");
-      setCloseMenuIconBackground(
-        "text-white bg-black p-4 lg:p-10 rounded-full"
-      );
+      setCloseMenuIconBackground("text-white bg-black p-4 rounded-full");
     }
   };
 

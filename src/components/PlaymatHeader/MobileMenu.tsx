@@ -22,9 +22,9 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClick, menuBackground }) => {
       } ${menuBackground} z-[1000] animate-pulse hover:animate-none hover:cursor-pointer`}
     >
       {!switchMenuIcon ? (
-        <CgMenuGridR className="h-10 w-10 lg:h-16 lg:w-16" />
+        <CgMenuGridR className="h-10 w-10" />
       ) : (
-        <CgClose className="h-10 w-10 lg:h-16 lg:w-16" />
+        <CgClose className="h-10 w-10" />
       )}
     </div>
   );
