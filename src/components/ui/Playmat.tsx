@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import PlaymatHeader from "./PlaymatHeader";
 import Scoreboard from "./Scoreboard";
 
