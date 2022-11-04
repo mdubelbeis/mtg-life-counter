@@ -24,7 +24,7 @@ const TwoPlayers: React.FC = () => {
   };
 
   return (
-    <div className={`relative w-screen h-screen`}>
+    <div className={`relative h-screen`}>
       {/* Mobile Menu */}
       <MobileMenu
         onClick={handleMenuClick}
