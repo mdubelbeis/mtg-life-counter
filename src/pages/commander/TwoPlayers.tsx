@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
 
 import Playmat from "../../components/ui/Playmat";
-import { useState } from "react";
 import MobileMenu from "../../components/PlaymatHeader/MobileMenu";
 
 const TwoPlayers: React.FC = () => {
