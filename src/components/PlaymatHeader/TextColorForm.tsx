@@ -1,6 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import ApplyButton from "../ui/ApplyButton";
+import { updatePlayerThreeTextColor } from "../../app/commander/PlayerThreeSlice";
+import { updatePlayerFourTextColor } from "../../app/commander/PlayerFourSlice";
+import { updatePlayerTwoTextColor } from "../../app/commander/PlayerTwoSlice";
+import { updatePlayerOneTextColor } from "../../app/commander/PlayerOneSlice";
 
 interface TextColorMenuProps {
   player: string;
@@ -10,20 +14,25 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
   const dispatch = useDispatch();
   const [textColor, setTextColor] = useState<string>("#000000");
 
-  const handleTextColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTextColorSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (player) {
       case "PlayerOne":
+        dispatch(updatePlayerOneTextColor(textColor));
         break;
       case "PlayerTwo":
+        dispatch(updatePlayerTwoTextColor(textColor));
         break;
       case "PlayerThree":
+        dispatch(updatePlayerThreeTextColor(textColor));
         break;
       case "PlayerFour":
+        dispatch(updatePlayerFourTextColor(textColor));
         break;
       default:
-        console.log("There is an error...");
+        console.log("Error...dummy");
     }
   };
+
   return (
     <div
       id="section-text-color"
@@ -37,24 +46,11 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             name="textColor"
             id="textColor"
             value={textColor}
-            onChange={handleTextColorChange}
+            onChange={(e) => setTextColor(e.target.value)}
+            onBlur={handleTextColorSubmit}
             className="bg-inherit w-20 h-9"
           />
-          {/* <select
-            name="textColor"
-            id="textColor"
-            className="py-2 px-4 rounded bg-white shadow-md"
-            defaultValue={"bg-blue-500"}
-          >
-            <option value="text-yellow-500">Yellow</option>
-            <option value="text-blue-800">Dark Blue</option>
-            <option value="text-green-800">Dark Green</option>
-            <option value="text-black">Black</option>
-            <option value="text-slate-500">Colorless</option>
-            <option value="text-white">White</option>
-          </select> */}
         </label>
-        {/* <ApplyButton /> */}
       </form>
     </div>
   );
