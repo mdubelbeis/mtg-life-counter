@@ -36,10 +36,10 @@ const PlaymatHeaderNav: React.FC<PlaymatHeaderNavProps> = ({ player }) => {
 
   return (
     <nav>
-      <div className="absolute top-4 left-20" onClick={handleRefreshGame}>
+      <div className="absolute top-4 left-10" onClick={handleRefreshGame}>
         <IoRefresh className="w-10 h-10 hover:cursor-pointer" />
       </div>
-      <div className="absolute top-4 right-20">
+      <div className="absolute top-4 right-10">
         <Link to="/">
           <BiHome className="w-10 h-10" />
         </Link>
