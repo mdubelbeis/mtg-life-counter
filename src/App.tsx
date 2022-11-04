@@ -1,15 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-import Header from "./components/Header";
-
-function App() {
+const App: React.FC = () => {
   const innerHeight = window.innerHeight;
   return (
-    <div className={`h-[${innerHeight + "px"}] w-screen`}>
-      {/* <Header /> */}
+    <div className={`h-full w-screen`}>
       <Outlet />
     </div>
   );
-}
+};
 
 export default App;
