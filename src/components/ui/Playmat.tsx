@@ -107,7 +107,7 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
       style={{ backgroundColor: filterBoardColor(), color: filterTextColor() }}
     >
       <div
-        className={`flex flex-col w-full h-full absolute ${
+        className={`flex flex-col absolute ${
           playerStats.name === "PlayerOne" || playerStats.name === "PlayerFour"
             ? "top-4 left-10"
             : "top-4 left-6"
