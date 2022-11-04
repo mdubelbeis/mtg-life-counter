@@ -6,10 +6,10 @@ import PlayerOneReducer from "./commander/PlayerOneSlice";
 
 export const store = configureStore({
   reducer: {
-    PlayerFour: PlayerFourReducer,
-    PlayerThree: PlayerThreeReducer,
-    PlayerTwo: PlayerTwoReducer,
     PlayerOne: PlayerOneReducer,
+    PlayerTwo: PlayerTwoReducer,
+    PlayerThree: PlayerThreeReducer,
+    PlayerFour: PlayerFourReducer,
   },
 });
 
