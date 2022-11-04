@@ -20,12 +20,13 @@ MTG Life Counter is a small web application supporting two players, three player
 - Poison counter
 - Commander damage
 - Playmat customization (background/text colors)
-- Refresh
-
+- Refresh game state
 
 ## FUTURE (POTENTIAL) FEATURES
 - Fetching data with commander input  to display to user (ex. commander for bg image, stats, card info)
 - Additional counters (ex. floating mana, +1/+1 counters)
+- Font customization (Desktop only - low priority)
+- Additional playmat customization (ex. card images, custom images, etc.)
 
  
- ** Developed and designed by Mason J. Dubelbeis. Created November 2022.
+ ** Developed and unfortunately-designed by Mason J. Dubelbeis. Created November 2022.
