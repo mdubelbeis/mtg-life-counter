@@ -1,14 +1,32 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updatePlayerOneBoardColor } from "../../app/commander/PlayerOneSlice";
+import { updatePlayerTwoBoardColor } from "../../app/commander/PlayerTwoSlice";
 import ApplyButton from "../ui/ApplyButton";
 
 // Instead of using a form onSubmit, when a color is selected by the input
 // run the handleBgColorChange function, calling handleBgColorApply at the end.
 
-const BgColorForm: React.FC = () => {
+interface BgColorFormProps {
+  player: string;
+}
+
+const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   const [inputColor, setInputColor] = useState<string>("#3B82F6");
+  const dispatch = useDispatch();
 
   const handleBgColorSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // dispatch color to store
+    switch (player) {
+      case "PlayerOne":
+        dispatch(updatePlayerOneBoardColor(inputColor));
+        break;
+      default:
+        dispatch(updatePlayerTwoBoardColor(inputColor));
+        break;
+    }
   };
 
   return (
