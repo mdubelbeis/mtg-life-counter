@@ -8,7 +8,7 @@ import { setPlayerFourLifeTotal } from "../../app/commander/PlayerFourSlice";
 
 const Commander: React.FC = () => {
   const dispatch = useDispatch();
-  const linkStyles = `bg-black text-white rounded-lg py-4 hover:bg-white hover:text-black`;
+  const linkStyles = `bg-black text-white rounded-lg py-4 w-full hover:bg-white hover:text-black`;
 
   useEffect(() => {
     dispatch(setPlayerOneLifeTotal(40));
@@ -25,7 +25,7 @@ const Commander: React.FC = () => {
           COUNTER
         </h1>
         <div className="flex flex-col gap-10 w-full">
-          <ul className="text-center w-4/12 mx-auto flex flex-col gap-6 text-blue-500">
+          <ul className="text-center w-6/12 lg:w-4/12 mx-auto flex flex-col gap-6 text-blue-500">
             <Link to="two-players" className={linkStyles}>
               <li>TWO PLAYERS</li>
             </Link>
