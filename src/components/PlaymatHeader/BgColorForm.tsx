@@ -48,7 +48,12 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         // Maybe Add more players???
         setBoardColor("#ffffff");
     }
-  }, []);
+  }, [
+    playerOneBoardColor,
+    playerTwoBoardColor,
+    playerThreeBoardColor,
+    playerFourBoardColor,
+  ]);
 
   const handleBgColorSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBoardColor(e.target.value);

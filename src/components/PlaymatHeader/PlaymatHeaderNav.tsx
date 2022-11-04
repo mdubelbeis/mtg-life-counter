@@ -1,12 +1,39 @@
 import { BiHome } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { IoRefresh } from "react-icons/io5";
+import { useDispatch } from "react-redux";
 
-const handleRefreshGame = () => {
-  console.log("Refresh game");
-};
+import { resetPlayerOne } from "../../app/commander/PlayerOneSlice";
+import { resetPlayerTwo } from "../../app/commander/PlayerTwoSlice";
+import { resetPlayerThree } from "../../app/commander/PlayerThreeSlice";
+import { resetPlayerFour } from "../../app/commander/PlayerFourSlice";
 
-const PlaymatHeaderNav: React.FC = () => {
+interface PlaymatHeaderNavProps {
+  player: string;
+}
+
+const PlaymatHeaderNav: React.FC<PlaymatHeaderNavProps> = ({ player }) => {
+  const dispatch = useDispatch();
+
+  const handleRefreshGame = () => {
+    switch (player) {
+      case "PlayerOne":
+        dispatch(resetPlayerOne());
+        break;
+      case "PlayerTwo":
+        dispatch(resetPlayerTwo());
+        break;
+      case "PlayerThree":
+        dispatch(resetPlayerThree());
+        break;
+      case "PlayerFour":
+        dispatch(resetPlayerFour());
+        break;
+      default:
+        console.log("There is an error...");
+    }
+  };
+
   return (
     <nav>
       <div className="absolute top-4 left-20" onClick={handleRefreshGame}>

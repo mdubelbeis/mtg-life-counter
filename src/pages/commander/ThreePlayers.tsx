@@ -39,12 +39,12 @@ const ThreePlayers: React.FC = () => {
         </div>
       </PlaySide>
       <PlaySide>
-        <div className="w-full h-full rotate-180">
+        <div className="w-full rotate-180 h-full">
           <Playmat playerStats={playerThreeStats} opacity={mobileMenuOpacity} />
         </div>
         <div className="w-full h-full bg-black text-white grid place-content-center">
           {/* <Playmat playerStats={playerFourStats} opacity={mobileMenuOpacity} /> */}
-          Advert?
+          Game Stats
         </div>
       </PlaySide>
     </div>

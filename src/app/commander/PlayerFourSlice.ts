@@ -41,6 +41,14 @@ export const playerFourSlice = createSlice({
     updatePlayerFourTextColor: (state, action: PayloadAction<string>) => {
       state.textColor = action.payload;
     },
+    resetPlayerFour: (state) => {
+      state.lifeTotal = 40;
+      state.poisonTotal = 0;
+      state.commanderDamage = 0;
+      state.commander = "";
+      state.boardColor = "#B8F2E6";
+      state.textColor = "#FAF3DD";
+    },
   },
 });
 
@@ -55,6 +63,7 @@ export const {
   updatePlayerFourCommander,
   updatePlayerFourBoardColor,
   updatePlayerFourTextColor,
+  resetPlayerFour,
 } = playerFourSlice.actions;
 
 export default playerFourSlice.reducer;

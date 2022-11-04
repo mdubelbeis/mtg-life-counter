@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { useLocation, useParams } from "react-router-dom";
 
 import {
   incrementPlayerOneHealth,
@@ -16,6 +17,7 @@ import {
   incrementPlayerFourHealth,
   decrementPlayerFourHealth,
 } from "../../app/commander/PlayerFourSlice";
+import { useEffect, useState } from "react";
 
 interface ScoreboardProps {
   playerStats: {
@@ -67,22 +69,24 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
         console.log("There is an error...");
     }
   };
+
+  console.log(location);
   return (
-    <div className="flex flex-col gap-10 w-full justify-center items-center">
-      <div className="w-full flex text-center justify-center items-center text-9xl">
-        <div
-          className={`h-full py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
-          onClick={handleLifeLoss}
-        >
-          <span>-</span>
-        </div>
-        <h2>{playerStats.lifeTotal}</h2>
-        <div
-          className={`w-full h-full py-18 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
-          onClick={handleLifeGain}
-        >
-          <span>+</span>
-        </div>
+    <div
+      className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-7xl lg:text-9xl`}
+    >
+      <div
+        className={`py-4 md:py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+        onClick={handleLifeLoss}
+      >
+        <span>-</span>
+      </div>
+      <h2>{playerStats.lifeTotal}</h2>
+      <div
+        className={`w-full py-4 md:py-18 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+        onClick={handleLifeGain}
+      >
+        <span>+</span>
       </div>
     </div>
   );

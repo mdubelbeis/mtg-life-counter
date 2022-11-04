@@ -101,19 +101,17 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
     }
   };
 
+  let isPlayerOneAndFour = ``;
+
   return (
     <div
       className={`h-full flex w-full relative z-50 p-2 border-[0.25px]`}
       style={{ backgroundColor: filterBoardColor(), color: filterTextColor() }}
     >
       <div
-        className={`flex flex-col absolute ${
-          playerStats.name === "PlayerOne" || playerStats.name === "PlayerFour"
-            ? "top-4 left-10"
-            : "top-4 left-6"
-        } uppercase tracking-wider`}
+        className={`max-w-[90%] flex flex-col absolute bottom-2 left-[50%] -translate-x-[50%] uppercase tracking-wider truncate`}
       >
-        {filterCommander()}
+        <small>{filterCommander()}</small>
       </div>
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}

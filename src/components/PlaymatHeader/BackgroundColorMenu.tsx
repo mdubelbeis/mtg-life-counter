@@ -10,9 +10,10 @@ const BackgroundColorMenu: React.FC<BackgroundColorMenuProps> = ({
   return (
     <div
       id="section-bg-color"
-      className="flex items-center justify-between gap-4 h-min p-2 rounded text-[#2c3142] bg-white w-full"
+      className="flex items-center justify-center sm:justify-between sm:gap-4 p-2 rounded text-[#2c3142] bg-white w-full"
     >
-      <h3 className="font-bold">Playmat: </h3>
+      <h3 className="font-bold hidden sm:block">Playmat:</h3>
+      <h3 className="font-bold sm:hidden">Mat:</h3>
       <BgColorForm player={player} />
     </div>
   );
