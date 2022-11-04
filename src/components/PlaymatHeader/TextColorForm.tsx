@@ -38,7 +38,7 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             id="textColor"
             value={textColor}
             onChange={handleTextColorChange}
-            className="border-0 bg-white rounded-full"
+            className="bg-inherit w-20 h-9"
           />
           {/* <select
             name="textColor"
@@ -54,7 +54,7 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             <option value="text-white">White</option>
           </select> */}
         </label>
-        <ApplyButton />
+        {/* <ApplyButton /> */}
       </form>
     </div>
   );

@@ -23,8 +23,13 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
   const playerTwoBoardColor = useSelector(
     (state: RootState) => state.PlayerTwo.boardColor
   );
-  // const playerThreeBoardColor = useSelector((state: RootState) => state.PlayerThree.boardColor);
-  // const playerFourBoardColor = useSelector((state: RootState) => state.PlayerFour.boardColor);
+  const playerThreeBoardColor = useSelector(
+    (state: RootState) => state.PlayerThree.boardColor
+  );
+  const playerFourBoardColor = useSelector(
+    (state: RootState) => state.PlayerFour.boardColor
+  );
+  // useEffect(() => {}, []);
 
   const filterBoardColor = () => {
     switch (playerStats.name) {
@@ -32,17 +37,19 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         return playerOneBoardColor;
       case "PlayerTwo":
         return playerTwoBoardColor;
-      // case "PlayerThree":
-      //   return playerThreeBoardColor;
-      // case "PlayerFour":
-      //   return playerFourBoardColor;
+      case "PlayerThree":
+        return playerThreeBoardColor;
+      case "PlayerFour":
+        return playerFourBoardColor;
       default:
         return "#000000 text-white";
     }
   };
+
   return (
     <div
-      className={`h-full flex w-full relative bg-[${filterBoardColor()}] z-50 p-2 border-[0.25px]`}
+      className={`h-full flex w-full relative z-50 p-2 border-[0.25px]`}
+      style={{ backgroundColor: filterBoardColor() }}
     >
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}

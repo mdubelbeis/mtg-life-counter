@@ -46,18 +46,17 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         // Maybe Add more players???
         setBoardColor("#ffffff");
     }
-  });
+  }, []);
 
   const handleBgColorSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     // e.preventDefault();
     setBoardColor(e.target.value);
-    // dispatch color to store
     switch (player) {
       case "PlayerOne":
-        dispatch(updatePlayerOneBoardColor(e.target.value.toUpperCase()));
+        dispatch(updatePlayerOneBoardColor(boardColor));
         break;
       case "PlayerTwo":
-        dispatch(updatePlayerTwoBoardColor(e.target.value.toUpperCase()));
+        dispatch(updatePlayerTwoBoardColor(boardColor));
         break;
       default:
         console.log("Error...dummy");
@@ -67,8 +66,8 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
 
   return (
     <form
-      // onSubmit={handleBgColorSubmit}
       className="flex items-center justify-end gap-4 w-full"
+      // onSubmit={handleBgColorSubmit}
     >
       <label>
         <input
@@ -76,11 +75,12 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           name="bgColor"
           id="bgColor"
           value={boardColor}
-          onChange={handleBgColorSubmit}
-          className="border-0 bg-white rounded-full"
+          onChange={(e) => setBoardColor(e.target.value)}
+          onBlur={handleBgColorSubmit}
+          className="bg-inherit w-20 h-9"
         />
       </label>
-      <ApplyButton />
+      {/* <ApplyButton /> */}
     </form>
   );
 };
