@@ -36,6 +36,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
   counter,
   player,
 }) => {
+  let handleCount = 0;
   const dispatch = useDispatch();
   let p1CommanderDamage = useSelector(
     (state: RootState) => state.PlayerOne.commanderDamage
@@ -117,15 +118,19 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       case "Commander Damage":
         switch (player) {
           case "PlayerOne":
+            if (p1CommanderDamage === 21) break;
             dispatch(incrementCommanderDamagePlayerOne());
             break;
           case "PlayerTwo":
+            if (p2CommanderDamage === 21) break;
             dispatch(incrementCommanderDamagePlayerTwo());
             break;
           case "PlayerThree":
+            if (p3CommanderDamage === 21) break;
             dispatch(incrementCommanderDamagePlayerThree());
             break;
           case "PlayerFour":
+            if (p4CommanderDamage === 21) break;
             dispatch(incrementCommanderDamagePlayerFour());
             break;
           default:
@@ -135,15 +140,19 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       case "Poison Damage":
         switch (player) {
           case "PlayerOne":
+            if (p1PoisonDamage === 10) break;
             dispatch(incrementPoisonDamagePlayerOne());
             break;
           case "PlayerTwo":
+            if (p2PoisonDamage === 10) break;
             dispatch(incrementPoisonDamagePlayerTwo());
             break;
           case "PlayerThree":
+            if (p3PoisonDamage === 10) break;
             dispatch(incrementPoisonDamagePlayerThree());
             break;
           case "PlayerFour":
+            if (p4PoisonDamage === 10) break;
             dispatch(incrementPoisonDamagePlayerFour());
             break;
           default:
