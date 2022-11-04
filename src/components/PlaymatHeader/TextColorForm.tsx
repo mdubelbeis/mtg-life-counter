@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import ApplyButton from "../ui/ApplyButton";
 import { updatePlayerThreeTextColor } from "../../app/commander/PlayerThreeSlice";
 import { updatePlayerFourTextColor } from "../../app/commander/PlayerFourSlice";
 import { updatePlayerTwoTextColor } from "../../app/commander/PlayerTwoSlice";
 import { updatePlayerOneTextColor } from "../../app/commander/PlayerOneSlice";
+import { RootState } from "../../app/store";
 
 interface TextColorMenuProps {
   player: string;
@@ -12,7 +13,40 @@ interface TextColorMenuProps {
 
 const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
   const dispatch = useDispatch();
-  const [textColor, setTextColor] = useState<string>("#000000");
+  const [textColor, setTextColor] = useState<string>("");
+
+  const playerOneTextColor = useSelector(
+    (state: RootState) => state.PlayerOne.textColor
+  );
+  const playerTwoTextColor = useSelector(
+    (state: RootState) => state.PlayerTwo.textColor
+  );
+  const playerThreeTextColor = useSelector(
+    (state: RootState) => state.PlayerThree.textColor
+  );
+  const playerFourTextColor = useSelector(
+    (state: RootState) => state.PlayerFour.textColor
+  );
+
+  useEffect(() => {
+    switch (player) {
+      case "PlayerOne":
+        setTextColor(playerOneTextColor);
+        break;
+      case "PlayerTwo":
+        setTextColor(playerTwoTextColor);
+        break;
+      case "PlayerThree":
+        setTextColor(playerThreeTextColor);
+        break;
+      case "PlayerFour":
+        setTextColor(playerFourTextColor);
+        break;
+      default:
+        // Maybe Add more players???
+        setTextColor("#ffffff");
+    }
+  }, []);
 
   const handleTextColorSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (player) {
