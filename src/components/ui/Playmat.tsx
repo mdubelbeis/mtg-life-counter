@@ -43,6 +43,19 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
     (state: RootState) => state.PlayerFour.textColor
   );
 
+  const playerOneCommander = useSelector(
+    (state: RootState) => state.PlayerOne.commander
+  );
+  const playerTwoCommander = useSelector(
+    (state: RootState) => state.PlayerTwo.commander
+  );
+  const playerThreeCommander = useSelector(
+    (state: RootState) => state.PlayerThree.commander
+  );
+  const playerFourCommander = useSelector(
+    (state: RootState) => state.PlayerFour.commander
+  );
+
   const filterBoardColor = () => {
     switch (playerStats.name) {
       case "PlayerOne":
@@ -72,11 +85,36 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         return "#000000 text-white";
     }
   };
+
+  const filterCommander = () => {
+    switch (playerStats.name) {
+      case "PlayerOne":
+        return playerOneCommander;
+      case "PlayerTwo":
+        return playerTwoCommander;
+      case "PlayerThree":
+        return playerThreeCommander;
+      case "PlayerFour":
+        return playerFourCommander;
+      default:
+        return "#000000 text-white";
+    }
+  };
+
   return (
     <div
       className={`h-full flex w-full relative z-50 p-2 border-[0.25px]`}
       style={{ backgroundColor: filterBoardColor(), color: filterTextColor() }}
     >
+      <div
+        className={`flex flex-col w-full h-full absolute ${
+          playerStats.name === "PlayerOne" || playerStats.name === "PlayerFour"
+            ? "top-4 left-10"
+            : "top-4 left-6"
+        } uppercase tracking-wider`}
+      >
+        {filterCommander()}
+      </div>
       <PlaymatHeader
         poisonDamage={playerStats.poisonTotal}
         commanderDamage={playerStats.commanderDamage}

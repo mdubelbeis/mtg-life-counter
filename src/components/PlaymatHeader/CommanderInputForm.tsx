@@ -46,6 +46,7 @@ const CommanderInputForm: React.FC<CommanderInputFormProps> = ({ player }) => {
           id="commander"
           placeholder="Commander"
           className="border-0 rounded-md w-full text-black px-2 py-2"
+          value={commander}
           onChange={(e) => setCommander(e.target.value)}
           onBlur={handleCommanderSubmit}
         />
