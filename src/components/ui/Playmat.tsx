@@ -12,8 +12,6 @@ interface PlaymatProps {
     commander: string;
   };
   opacity: string;
-  bgColor: string;
-  altColor: string;
 }
 
 const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
