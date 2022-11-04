@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../app/store";
+import { useDispatch } from "react-redux";
 
 import Playmat from "../../components/ui/Playmat";
 import MobileMenu from "../../components/PlaymatHeader/MobileMenu";
+import { setPlayerTwoLifeTotal } from "../../app/commander/PlayerTwoSlice";
+import { setPlayerOneLifeTotal } from "../../app/commander/PlayerOneSlice";
 
 const TwoPlayers: React.FC = () => {
   let playerOneStats = useSelector((state: RootState) => state.PlayerOne);
@@ -12,6 +15,7 @@ const TwoPlayers: React.FC = () => {
   const [closeMenuIconBackground, setCloseMenuIconBackground] = useState(
     "text-white bg-black p-4 rounded-full"
   );
+  const dispatch = useDispatch();
 
   const handleMenuClick = () => {
     if (mobileMenuOpacity === "0") {

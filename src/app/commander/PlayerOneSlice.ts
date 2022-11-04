@@ -50,6 +50,9 @@ export const playerOneSlice = createSlice({
       state.boardColor = "#FF6F61";
       state.textColor = "#E3D3E4";
     },
+    setPlayerOneLifeTotal: (state, action: PayloadAction<number>) => {
+      state.lifeTotal = Number(action.payload);
+    },
   },
 });
 
@@ -65,6 +68,7 @@ export const {
   updatePlayerOneBoardColor,
   updatePlayerOneTextColor,
   resetPlayerOne,
+  setPlayerOneLifeTotal,
 } = playerOneSlice.actions;
 
 export default playerOneSlice.reducer;
