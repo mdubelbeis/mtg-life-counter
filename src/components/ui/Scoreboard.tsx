@@ -29,12 +29,16 @@ interface ScoreboardProps {
     poisonTotal: number;
     commanderDamage: number;
     commander: string;
+    boardColor: string;
+    textColor: string;
   };
 }
 
 const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
-  const [showInput, setShowInput] = useState(false);
-  const [lifeTotal, setLifeTotal] = useState<string>(playerStats.lifeTotal);
+  const [showInput, setShowInput] = useState<boolean>(false);
+  const [lifeTotal, setLifeTotal] = useState<string>(
+    String(playerStats.lifeTotal)
+  );
   const dispatch = useDispatch();
 
   const handleLifeGain = () => {
@@ -77,16 +81,14 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
 
   const handleShowInput = () => {
     setShowInput(!showInput);
-    setLifeTotal("0");
+    setLifeTotal("");
   };
 
   const handleHealthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLifeTotal(e.target.value);
   };
 
-  const handleHealthSubmit = (e: React.FormEvent<HTMLInputElement>) => {
-    e.preventDefault();
-
+  const handleHealthBlur = (e: React.FormEvent<HTMLInputElement>) => {
     handleShowInput();
 
     switch (playerStats.name) {
@@ -107,6 +109,11 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
     }
   };
 
+  const handleHealthSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleHealthBlur(e.target.value);
+  };
+
   return (
     <div
       className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-7xl lg:text-9xl`}
@@ -118,15 +125,20 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
         <span>-</span>
       </div>
       {!showInput ? (
-        <h2 onClick={handleShowInput}>{playerStats.lifeTotal}</h2>
+        <h2 className="w-6/12" onClick={handleShowInput}>
+          {playerStats.lifeTotal}
+        </h2>
       ) : (
-        <form>
+        <form onSubmit={handleHealthSubmit}>
           <input
             type="number"
             value={lifeTotal}
+            id="lifeTotal"
+            name="lifeTotal"
             onChange={handleHealthChange}
-            onBlur={handleHealthSubmit}
-            className="w-6/12"
+            onBlur={handleHealthBlur}
+            className={`w-6/12`}
+            style={{ backgroundColor: "whitesmoke", color: "black" }}
           />
         </form>
       )}

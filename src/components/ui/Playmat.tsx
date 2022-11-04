@@ -12,6 +12,8 @@ interface PlaymatProps {
     poisonTotal: number;
     commanderDamage: number;
     commander: string;
+    boardColor: string;
+    textColor: string;
   };
   opacity: string;
 }
@@ -100,8 +102,6 @@ const Playmat: React.FC<PlaymatProps> = ({ playerStats, opacity }) => {
         return "#000000 text-white";
     }
   };
-
-  let isPlayerOneAndFour = ``;
 
   return (
     <div
