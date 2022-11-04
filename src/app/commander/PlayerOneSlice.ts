@@ -8,7 +8,7 @@ const initialState = {
   commanderDamage: 0,
   commander: "",
   boardColor: "#FF6F61",
-  textColor: "##E3D3E4",
+  textColor: "#E3D3E4",
 };
 
 export const playerOneSlice = createSlice({

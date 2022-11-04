@@ -13,7 +13,7 @@ interface TextColorMenuProps {
 
 const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
   const dispatch = useDispatch();
-  const [textColor, setTextColor] = useState<string>("");
+  const [textColor, setTextColor] = useState<string>("#000000");
 
   const playerOneTextColor = useSelector(
     (state: RootState) => state.PlayerOne.textColor

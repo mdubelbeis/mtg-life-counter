@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { updatePlayerFourBoardColor } from "../../app/commander/PlayerFourSlice";
 import { updatePlayerOneBoardColor } from "../../app/commander/PlayerOneSlice";
+import { updatePlayerThreeBoardColor } from "../../app/commander/PlayerThreeSlice";
 import { updatePlayerTwoBoardColor } from "../../app/commander/PlayerTwoSlice";
 import { RootState } from "../../app/store";
 import ApplyButton from "../ui/ApplyButton";
@@ -56,6 +58,12 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
         break;
       case "PlayerTwo":
         dispatch(updatePlayerTwoBoardColor(boardColor));
+        break;
+      case "PlayerThree":
+        dispatch(updatePlayerThreeBoardColor(boardColor));
+        break;
+      case "PlayerFour":
+        dispatch(updatePlayerFourBoardColor(boardColor));
         break;
       default:
         console.log("Error...dummy");
