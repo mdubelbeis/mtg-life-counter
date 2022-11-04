@@ -49,7 +49,6 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
   }, []);
 
   const handleBgColorSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // e.preventDefault();
     setBoardColor(e.target.value);
     switch (player) {
       case "PlayerOne":
@@ -77,7 +76,7 @@ const BgColorForm: React.FC<BgColorFormProps> = ({ player }) => {
           value={boardColor}
           onChange={(e) => setBoardColor(e.target.value)}
           onBlur={handleBgColorSubmit}
-          className="bg-inherit w-20 h-9"
+          className="bg-inherit"
         />
       </label>
       {/* <ApplyButton /> */}

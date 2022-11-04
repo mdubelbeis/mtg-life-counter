@@ -71,14 +71,14 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
     <div className="flex flex-col gap-10 w-full justify-center items-center">
       <div className="w-full flex text-center justify-center items-center text-9xl">
         <div
-          className={`grid-span-1 h-full py-32 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+          className={`h-full py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
           onClick={handleLifeLoss}
         >
           <span>-</span>
         </div>
         <h2>{playerStats.lifeTotal}</h2>
         <div
-          className={`grid-span-1 w-full h-full py-32 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+          className={`w-full h-full py-18 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
           onClick={handleLifeGain}
         >
           <span>+</span>

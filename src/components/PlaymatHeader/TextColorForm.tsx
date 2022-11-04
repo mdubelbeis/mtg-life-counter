@@ -48,7 +48,7 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
             value={textColor}
             onChange={(e) => setTextColor(e.target.value)}
             onBlur={handleTextColorSubmit}
-            className="bg-inherit w-20 h-9"
+            className="bg-inherit"
           />
         </label>
       </form>
