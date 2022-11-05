@@ -12,15 +12,13 @@ interface PlaymatHeaderProps {
   player: string;
   opacity: string;
 }
-
+let commanderName;
 const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
   player,
   opacity,
   poisonDamage,
   commanderDamage,
 }) => {
-  let commanderName;
-
   const getPlayer = () => {
     switch (player) {
       case "PlayerOne":
@@ -50,7 +48,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
     <header
       className={`absolute ${
         opacity === "0" ? "hidden" : ""
-      } top-0 left-0 bg-[#2c3142] w-full sm:max-w-xl text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
+      } top-0 left-0 bg-[#2c3142] w-full sm:max-w-2xl text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
     >
       <PlaymatHeaderNav player={player} />
       <div
@@ -67,12 +65,12 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
         <BackgroundColorMenu player={player} />
         <TextColorForm player={player} />
         <DamageCounters
-          title="Commander Damage"
+          title="COMMANDER DMG"
           player={player}
           counter={commanderDamage}
         />
         <DamageCounters
-          title="Poison Damage"
+          title="Poison DMG"
           player={player}
           counter={poisonDamage}
         />
