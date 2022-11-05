@@ -38,6 +38,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
 }) => {
   let handleCount = 0;
   const dispatch = useDispatch();
+
   let p1CommanderDamage = useSelector(
     (state: RootState) => state.PlayerOne.commanderDamage
   );
