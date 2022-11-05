@@ -114,12 +114,14 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
     handleHealthBlur(e.target.value);
   };
 
+  // Filter
+
   return (
     <div
       className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-9xl`}
     >
       <div
-        className={`py-4 md:py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+        className={`md:py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
         onClick={handleLifeLoss}
       >
         <span>-</span>
@@ -143,7 +145,7 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
         </form>
       )}
       <div
-        className={`w-full py-4 md:py-18 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
+        className={`w-full md:py-18 flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
         onClick={handleLifeGain}
       >
         <span>+</span>
