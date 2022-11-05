@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import {
   incrementPlayerOneHealth,
@@ -21,6 +21,7 @@ import {
   setPlayerFourLifeTotal,
 } from "../../app/commander/PlayerFourSlice";
 import { useEffect, useState } from "react";
+import { RootState } from "../../app/store";
 
 interface ScoreboardProps {
   playerStats: {
@@ -114,12 +115,8 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
     handleHealthBlur(e.target.value);
   };
 
-  // Filter
-
   return (
-    <div
-      className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-9xl`}
-    >
+    <div className="w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-9xl">
       <div
         className={`md:py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
         onClick={handleLifeLoss}
