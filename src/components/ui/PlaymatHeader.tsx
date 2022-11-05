@@ -50,7 +50,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
     <header
       className={`absolute ${
         opacity === "0" ? "hidden" : ""
-      } top-0 left-0 bg-[#2c3142] w-full xl:w-6/12 text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
+      } top-0 left-0 bg-[#2c3142] w-full sm:max-w-xl text-white p-4 h-full flex flex-col items-center gap-2 overflow-scroll`}
     >
       <PlaymatHeaderNav player={player} />
       <div
@@ -62,7 +62,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
 
       <section
         id="settings-wrapper"
-        className="grid grid-cols-1 gap-2 p-4 w-full"
+        className="grid grid-cols-1 gap-2 max-w-md p-4 w-full"
       >
         <BackgroundColorMenu player={player} />
         <TextColorForm player={player} />
