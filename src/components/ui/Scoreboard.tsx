@@ -1,4 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import {
   incrementPlayerOneHealth,
@@ -20,8 +21,6 @@ import {
   decrementPlayerFourHealth,
   setPlayerFourLifeTotal,
 } from "../../app/commander/PlayerFourSlice";
-import { useEffect, useState } from "react";
-import { RootState } from "../../app/store";
 
 interface ScoreboardProps {
   playerStats: {
@@ -82,7 +81,6 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
 
   const handleShowInput = () => {
     setShowInput(!showInput);
-    setLifeTotal("");
   };
 
   const handleHealthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -124,7 +122,7 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
         <span>-</span>
       </div>
       {!showInput ? (
-        <h2 className="w-6/12" onClick={handleShowInput}>
+        <h2 className="w-6/12" onDoubleClick={handleShowInput}>
           {playerStats.lifeTotal}
         </h2>
       ) : (

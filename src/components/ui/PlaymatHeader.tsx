@@ -70,7 +70,7 @@ const PlaymatHeader: React.FC<PlaymatHeaderProps> = ({
           counter={commanderDamage}
         />
         <DamageCounters
-          title="Poison DMG"
+          title="POISON DMG"
           player={player}
           counter={poisonDamage}
         />
