@@ -2,7 +2,7 @@
 
 ## ABOUT
 
-MTG Life Counter is a small web application supporting two players, three players, and four players. Users can keep track of life totals, commander damage, counters (limited for MVP), and custom playmat designs to support any style of player. 
+MTG Life Counter is a small web application for mobile devices, supporting two players, three players, and four players. Users can keep track of life totals, commander damage, counters (limited for MVP), and custom playmat designs to support any style of player. 
 
 ## TOOLS USED (STILL IN PROGRESS)
 

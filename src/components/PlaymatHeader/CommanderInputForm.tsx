@@ -51,12 +51,6 @@ const CommanderInputForm: React.FC<CommanderInputFormProps> = ({ player }) => {
           onBlur={handleCommanderSubmit}
         />
       </label>
-      {/* <button
-        className={`absolute top-[4px] right-2 bg-blue-500 rounded py-1 px-3 tracking-wider hover:bg-blue-700 active:bg-blue-700`}
-        onChange={() => console.log("Clicked")}
-      >
-        Set
-      </button> */}
       <p className="text-red-500 py-2">{errorMessage}</p>
     </form>
   );
