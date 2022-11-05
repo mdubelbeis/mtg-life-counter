@@ -116,7 +116,7 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
 
   return (
     <div
-      className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-7xl lg:text-9xl`}
+      className={`w-full flex flex-col-reverse gap-4 sm:flex-row text-center justify-center items-center text-9xl`}
     >
       <div
         className={`py-4 md:py-18 w-full flex justify-center items-center text-4xl rounded active:bg-opacity-50 text-opacity-100`}
