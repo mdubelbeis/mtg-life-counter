@@ -24,6 +24,7 @@ import {
   decrementCommanderDamagePlayerFour,
   decrementPoisonDamagePlayerFour,
 } from "../../app/commander/PlayerFourSlice";
+import { useEffect } from "react";
 
 interface DamageCounterProps {
   title: string;
@@ -36,7 +37,6 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
   counter,
   player,
 }) => {
-  let handleCount = 0;
   const dispatch = useDispatch();
 
   let p1CommanderDamage = useSelector(
@@ -67,7 +67,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
 
   const handleDecrement = () => {
     switch (title) {
-      case "Commander Damage":
+      case "COMMANDER DMG":
         switch (player) {
           case "PlayerOne":
             if (p1CommanderDamage === 0) break;
@@ -89,7 +89,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
             console.log("Error: No such Action Creator");
         }
         break;
-      case "Poison Damage":
+      case "POISON DMG":
         switch (player) {
           case "PlayerOne":
             if (p1PoisonDamage === 0) break;
@@ -116,7 +116,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
 
   const handleIncrement = () => {
     switch (title) {
-      case "Commander Damage":
+      case "COMMANDER DMG":
         switch (player) {
           case "PlayerOne":
             if (p1CommanderDamage === 21) break;
@@ -138,7 +138,7 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
             console.log("Error: No such Action Creator");
         }
         break;
-      case "Poison Damage":
+      case "POISON DMG":
         switch (player) {
           case "PlayerOne":
             if (p1PoisonDamage === 10) break;
@@ -168,12 +168,12 @@ const DamageCounters: React.FC<DamageCounterProps> = ({
       <h3 className="font-bold">{title}:</h3>
       <span>{counter}</span>
       <div className="flex gap-6 text-xl mr-2 items-center">
-        <span onClick={handleDecrement} className="hover:cursor-pointer">
+        <div onClick={handleDecrement} className="hover:cursor-pointer p-2">
           -
-        </span>
-        <span onClick={handleIncrement} className="hover:cursor-pointer">
+        </div>
+        <div onClick={handleIncrement} className="hover:cursor-pointer">
           +
-        </span>
+        </div>
       </div>
     </div>
   );

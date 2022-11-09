@@ -23,7 +23,7 @@ MTG Life Counter is a small web application for mobile devices, supporting two p
 - Refresh game state
 
 ## FUTURE (POTENTIAL) FEATURES
-- Fetching data with commander input  to display to user (ex. commander for bg image, stats, card info)
+- Fetching data with commander input to display to user (ex. commander for bg image, stats, card info)
 - Additional counters (ex. floating mana, +1/+1 counters)
 - Font customization (Desktop only - low priority)
 - Additional playmat customization (ex. card images, custom images, etc.)
