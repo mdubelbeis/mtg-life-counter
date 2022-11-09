@@ -19,7 +19,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ onClick, menuBackground }) => {
       onClick={handleIconClick}
       className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-[0.5px] shadow-xl ${
         switchMenuIcon ? "border-black" : "border-white"
-      } ${menuBackground} z-[1000] animate-pulse hover:animate-none hover:cursor-pointer`}
+      } ${menuBackground} z-[1000] hover:cursor-pointer`}
     >
       {!switchMenuIcon ? (
         <CgMenuGridR className="h-10 w-10 lg:h-16 lg:w-16" />

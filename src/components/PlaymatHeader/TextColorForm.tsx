@@ -72,7 +72,7 @@ const TextColorMenu: React.FC<TextColorMenuProps> = ({ player }) => {
       id="section-text-color"
       className="flex items-center justify-between gap-4 h-min p-2 rounded text-[#2c3142] bg-white w-full"
     >
-      <h3 className="font-bold">Text: </h3>
+      <h3 className="font-bold">TEXT: </h3>
       <form className="flex items-center justify-end gap-4 w-full">
         <label>
           <input
