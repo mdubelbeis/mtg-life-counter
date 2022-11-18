@@ -50,7 +50,10 @@ const CommanderInputForm: React.FC<CommanderInputFormProps> = ({ player }) => {
           onChange={(e) => setCommander(e.target.value)}
         />
       </label>
-      <button className="absolute top-[6px] right-2 text-white bg-blue-500 py-1 px-3 rounded-lg tracking-wider">
+      <button
+        type="submit"
+        className="absolute top-[6px] right-2 text-white bg-blue-500 py-1 px-3 rounded-lg tracking-wider"
+      >
         SET
       </button>
       <p className="text-red-500 py-2">{errorMessage}</p>
