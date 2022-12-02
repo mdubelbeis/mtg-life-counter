@@ -122,7 +122,10 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ playerStats }) => {
         <span>-</span>
       </div>
       {!showInput ? (
-        <h2 className="w-6/12 text-7xl" onDoubleClick={handleShowInput}>
+        <h2
+          className="w-6/12 text-7xl lg:text-9xl"
+          onDoubleClick={handleShowInput}
+        >
           {playerStats.lifeTotal}
         </h2>
       ) : (
