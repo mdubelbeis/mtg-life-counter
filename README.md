@@ -2,6 +2,8 @@
 
 ## ABOUT
 
+A MOBILE FIRST APPLICATION.
+
 MTG Life Counter is a small web application for mobile devices, supporting two players, three players, and four players. Users can keep track of life totals, commander damage, counters (limited for MVP), and custom playmat designs to support any style of player. 
 
 ## TOOLS USED (STILL IN PROGRESS)
@@ -11,7 +13,7 @@ MTG Life Counter is a small web application for mobile devices, supporting two p
 - TailwindCSS
 - Redux-Toolkit
 - React-Icons
-- React-Router.
+- React-Router
 - Vite
 
 ## CURRENT FEATURES (Version 1.0 (MVP))
