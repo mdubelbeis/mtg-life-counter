@@ -35,7 +35,7 @@ const TwoPlayers: React.FC = () => {
         menuBackground={closeMenuIconBackground}
       />
       {/* Player 1 */}
-      <div className="w-full h-1/2 rotate-180">
+      <div className="w-full h-1/2">
         <Playmat playerStats={playerOneStats} opacity={mobileMenuOpacity} />
       </div>
       {/* Player 2 */}

@@ -8,6 +8,7 @@ import { setPlayerFourLifeTotal } from "../../app/commander/PlayerFourSlice";
 
 const Commander: React.FC = () => {
   const dispatch = useDispatch();
+
   const linkStyles = `bg-black text-white rounded-lg py-4 w-full hover:bg-white hover:text-black`;
 
   useEffect(() => {
